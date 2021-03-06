@@ -1,0 +1,58 @@
+﻿@page "/UsuarioAdd"
+@using OnlineBlazorApp.Data.Model
+@using OnlineBlazorApp.Data.Service
+
+@inject IUsuarioService UsuarioService
+@inject NavigationManager NavigationManager
+
+<h1>Adicionar Usuario</h1>
+<EditForm Model="@usuario" OnValidSubmit="@UsuarioInsert">
+    <table>
+        <tr>
+            <td>Código:</td>
+            <td><input type="text" @bind="usuario.pk_cod_usu" required /></td>
+        </tr>
+        <tr>
+            <td>Nombre:</td>
+            <td><input type="text" @bind="usuario.nombre" required /></td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td><input type="text" @bind="usuario.email" /></td>
+        </tr>
+        <tr>
+            <td>Pass:</td>
+            <td><input type="text" @bind="usuario.pass" /></td>
+        </tr>
+        <tr>
+            <td>Direccion:</td>
+            <td><input type="text" @bind="usuario.direccion" /></td>
+        </tr>
+        <tr>
+            <td>Telefono:</td>
+            <td><input type="text" @bind="usuario.telefono" /></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Adicionar" />
+                <input type="button" value="Cancelar" @onclick="@Cancel" />
+            </td>
+        </tr>
+
+    </table>
+
+</EditForm>
+
+@code {
+    Usuario usuario = new Usuario();
+    protected async Task UsuarioInsert()
+    {
+        await UsuarioService.UsuarioInsert(usuario);
+        NavigationManager.NavigateTo("/");
+    }
+
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("/");
+    }
+}
