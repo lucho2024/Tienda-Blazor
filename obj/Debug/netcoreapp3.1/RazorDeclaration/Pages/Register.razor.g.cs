@@ -76,21 +76,21 @@ using OnlineBlazorApp.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\UsuarioAdd.razor"
+#line 2 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Register.razor"
 using OnlineBlazorApp.Data.Model;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\UsuarioAdd.razor"
+#line 3 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Register.razor"
 using OnlineBlazorApp.Data.Service;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/UsuarioAdd")]
-    public partial class UsuarioAdd : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/register")]
+    public partial class Register : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -98,13 +98,13 @@ using OnlineBlazorApp.Data.Service;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 46 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\UsuarioAdd.razor"
+#line 48 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Register.razor"
        
     Usuario usuario = new Usuario();
     protected async Task UsuarioInsert()
     {
         await UsuarioService.UsuarioInsert(usuario);
-        NavigationManager.NavigateTo("/");
+        NavigationManager.NavigateTo("/login");
     }
 
     void Cancel()

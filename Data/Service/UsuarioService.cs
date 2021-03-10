@@ -47,9 +47,9 @@ namespace OnlineBlazorApp.Data.Service
             using (var conn = new SqlConnection(_configuration.Value))
             {
                 var parameters = new DynamicParameters();
-               
+
                 parameters.Add("pass", usuario.pass, DbType.String);
-               
+
 
                 const string query = @"update usuario set pass = @pass)";
                 await conn.ExecuteAsync(query, new
@@ -69,20 +69,20 @@ namespace OnlineBlazorApp.Data.Service
             using (var conn = new SqlConnection(_configuration.Value))
             {
                 var parameters = new DynamicParameters();
-              
+
                 parameters.Add("email", usuario.email, DbType.String);
-             
+
 
                 const string query = @"Select * from  usuario where email=@email";
                 await conn.ExecuteAsync(query, new
-                { 
+                {
                     usuario.email
                 },
                     commandType: CommandType.Text);
             }
             return true;
         }
-        
+
         public async Task<bool> UsuarioDelete(Usuario usuario)
         {
             using (var conn = new SqlConnection(_configuration.Value))

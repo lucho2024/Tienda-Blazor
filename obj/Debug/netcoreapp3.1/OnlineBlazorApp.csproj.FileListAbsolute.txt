@@ -69,5 +69,7 @@ C:\Users\luish\source\repos\OnlineBlazorApp\bin\Debug\netcoreapp3.1\runtimes\win
 C:\Users\luish\source\repos\OnlineBlazorApp\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\luish\source\repos\OnlineBlazorApp\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\luish\source\repos\OnlineBlazorApp\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\UsuarioAdd.razor.g.cs
-C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\Razor\Pages\UsuarioAdd.razor.g.cs
+C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Register.razor.g.cs
+C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\Razor\Pages\Register.razor.g.cs
+C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Login.razor.g.cs
+C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\Razor\Pages\Login.razor.g.cs
