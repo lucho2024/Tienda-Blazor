@@ -5,41 +5,41 @@
 @inject IUsuarioService UsuarioService
 @inject NavigationManager NavigationManager
 
-<h1>Adicionar Usuario</h1>
-<EditForm Model="@usuario" OnValidSubmit="@UsuarioInsert">
-    <table>
-        <tr>
-            <td>Código:</td>
-            <td><input type="text" @bind="usuario.pk_cod_usu" required /></td>
-        </tr>
-        <tr>
-            <td>Nombre:</td>
-            <td><input type="text" @bind="usuario.nombre" required /></td>
-        </tr>
-        <tr>
-            <td>Email:</td>
-            <td><input type="text" @bind="usuario.email" /></td>
-        </tr>
-        <tr>
-            <td>Pass:</td>
-            <td><input type="text" @bind="usuario.pass" /></td>
-        </tr>
-        <tr>
-            <td>Direccion:</td>
-            <td><input type="text" @bind="usuario.direccion" /></td>
-        </tr>
-        <tr>
-            <td>Telefono:</td>
-            <td><input type="text" @bind="usuario.telefono" /></td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <input type="submit" value="Adicionar" />
-                <input type="button" value="Cancelar" @onclick="@Cancel" />
-            </td>
-        </tr>
 
-    </table>
+<EditForm Model="@usuario" OnValidSubmit="@UsuarioInsert">
+    
+
+    <div class="container">
+        <h1>Registro</h1>
+        <div class="mb-3">
+            <label for="name" class="form-label">Nombre : </label>
+            <input type="text" class="form-control" id="name" @bind="usuario.nombre" required >
+        </div>
+       
+        <div class="mb-3">
+            <label for="email" class="form-label">Correo electronico : </label>
+            <input type="text" class="form-control" id="email" @bind="usuario.email" required  >
+        </div>
+        <div class="mb-3">
+            <label for="pass" class="form-label">Contraseña :</label>
+            <input type="password" class="form-control" id="pass" @bind="usuario.pass" required >
+        </div>
+        <div class="mb-3">
+            <label for="direccion" class="form-label">Dirección :</label>
+            <input type="text" class="form-control" id="direccion" @bind="usuario.direccion" required >
+        </div>
+        <div class="mb-3">
+            <label for="telefono" class="form-label">Telefono :</label>
+            <input type="text" class="form-control" id="telefono" @bind="usuario.telefono" required >
+        </div>
+
+
+        <input type="submit" value="Crear" class="btn btn-primary" />
+        <input type="button" value="Cancelar" class="btn btn-primary" @onclick="@Cancel" />
+    </div>
+
+
+
 
 </EditForm>
 

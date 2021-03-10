@@ -83,7 +83,7 @@ using OnlineBlazorApp.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 28 "C:\Users\luish\source\repos\OnlineBlazorApp\Shared\NavMenu.razor"
+#line 34 "C:\Users\luish\source\repos\OnlineBlazorApp\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 
