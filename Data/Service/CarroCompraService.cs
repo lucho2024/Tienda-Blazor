@@ -27,7 +27,7 @@ namespace OnlineBlazorApp.Data.Service
 
 
 
-                const string query = @"INSERT INTO orden (pk_cod_carro,fk_cod_usu)
+                const string query = @"INSERT INTO carroCompra (pk_cod_carro,fk_cod_usu)
                                      VALUES (@pk_cod_carro,@fk_cod_usu)";
                 await conn.ExecuteAsync(query, new
                 {
