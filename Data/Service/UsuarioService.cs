@@ -30,7 +30,7 @@ namespace OnlineBlazorApp.Data.Service
                 parameters.Add("direccion", usuario.direccion, DbType.String);
                 parameters.Add("telefono", usuario.telefono, DbType.String);
 
-                const string query = @"INSERT INTO usuario (pk_cod_tienda,fk_cod_tienda,nombre,email,pass,direcion,telefono)
+                const string query = @"INSERT INTO usuario (pk_cod_tienda,fk_cod_tienda,nombre,email,pass,direccion,telefono)
                      VALUES (@pk_cod_usu,@fk_cod_tienda, @nombre,@email,@pass,@direccion,@telefono)";
                 await conn.ExecuteAsync(query, new
                 {
