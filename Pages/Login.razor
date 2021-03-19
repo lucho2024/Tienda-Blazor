@@ -46,3 +46,12 @@
         NavigationManager.NavigateTo("/");
     }
 }
+
+@code { IEnumerable<Usuario> usuarios;
+
+            protected override async Task OnInitializedAsync()
+            {
+                usuarios = await UsuarioService.GetAllClientes();
+            }
+}
+

@@ -1,0 +1,81 @@
+﻿@page "/producto-add"
+@using OnlineBlazorApp.Data.Model
+@using OnlineBlazorApp.Data.Service
+
+@inject IProductoService ProductoService
+@inject NavigationManager NavigationManager
+@inject IFileUpload fileUpload
+
+<EditForm Model="@producto" OnValidSubmit="@ProductoInsert">
+    <div class="form-group">
+        <label for="name" class="form-label">Nombre : </label>
+        <input type="text" class="form-control" id="name" @bind="producto.nombre">
+    </div>
+    <div class="form-group">
+        <label for="cantidad">Cantidad</label>
+        <input type="number" class="form-control" id="cantidad" @bind="producto.cantidad"
+               required placeholder="Cantidad">
+    </div>
+    <div class="form-group">
+        <label for="descripcion" class="form-label">Descripcion : </label>
+        <input type="text" class="form-control" id="descripcion" @bind="producto.descripcion">
+    </div>
+    <div class="form-group">
+        <label for="precio">Precio</label>
+        <input type="number" class="form-control" id="precio" @bind="producto.precio"
+               required placeholder="Precio">
+    </div>
+    <div class="form-group">
+        <label for="imagen">Imagen</label>
+        <InputFile OnChange="SeleccionarArchivo">
+            @if (file != null)
+            {
+                <p>Archivo cargado : @file.Name</p>
+            }
+        </InputFile>
+    </div>
+    <div class="mb-2">
+        <input type="submit" value="Registrar producto" class="btn btn-success btn-block" />
+    </div>
+</EditForm>
+
+@code {
+
+    Producto producto = new Producto();
+    IFileListEntry file;
+
+    protected async Task ProductoInsert()
+    {
+        await ProductoService.ProductoInsert(producto);
+        NavigationManager.NavigateTo("/login");
+    }
+
+    public bool verificarTipoImagen(String extension)
+    {
+        string[] typeImage = { ".png", ".jpg", ".jpeg", ".gif" };
+        return typeImage.Contains(extension);
+    }
+
+    async Task SeleccionarArchivo(IFileListEntry[] files)
+    {
+        file = files.FirstOrDefault();
+        if(file!=null && verificarTipoImagen(Path.GetExtension(file.Name)))
+        {
+            producto.imagen = file.Name;
+            await fileUpload.UploadAsync(file);
+        }
+    }
+     async Task HandleFileSelected(IFileListEntry[] files)
+    {
+        file = files.FirstOrDefault();
+        if (file != null)
+        {
+            await fileUpload.UploadAsync(file);
+        }
+    }
+
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("/");
+    }
+}

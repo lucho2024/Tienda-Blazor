@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace OnlineBlazorApp
 {
     public class Startup
@@ -30,6 +31,9 @@ namespace OnlineBlazorApp
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
             services.AddScoped<IUsuarioService,UsuarioService>();
+            services.AddScoped<IProductoService, ProductoService>();
+            services.AddScoped<IFileUpload, FileUpload>();
+
 
             //Conecction DB
             var SqlConnectionConfiguration = new SqlConnectionConfiguration(Configuration.GetConnectionString("SqlDBContext"));

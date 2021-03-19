@@ -23,28 +23,24 @@ namespace OnlineBlazorApp.Data.Service
             using (var conn = new SqlConnection(_configuration.Value))
             {
                 var parameters = new DynamicParameters();
-                parameters.Add("pk_cod_producto", producto.pk_cod_producto, DbType.Int32);
-                parameters.Add("fk_cod_tienda", producto.fk_cod_tienda, DbType.Int32);
-                parameters.Add("fk_cod_categoria", producto.fk_cod_categoria, DbType.Int32);
+               
                 parameters.Add("nombre", producto.nombre, DbType.String);
                 parameters.Add("cantidad", producto.cantidad, DbType.Int32);
                 parameters.Add("descripcion", producto.descripcion, DbType.String);
                 parameters.Add("precio", producto.precio, DbType.Double);
+                parameters.Add("imagen", producto.imagen, DbType.String);
 
 
-                const string query = @"INSERT INTO orden (pk_cod_producto,fk_cod_tienda,fk_cod_categoria,
-                                    nombre,cantidad,descripcion,precio)
-                                     VALUES (@pk_cod_producto,@fk_cod_tienda, @fk_cod_categoria,
-                                     @nombre,@cantidad,@ddescripcion,@precio)";
+                const string query = @"INSERT INTO producto (fk_cod_tienda,fk_cod_categoria,nombre,cantidad,descripcion,precio,imagen)
+                                     VALUES (1, 1,@nombre,@cantidad,@descripcion,@precio,@imagen)";
                 await conn.ExecuteAsync(query, new
                 {
-                    producto.pk_cod_producto,
-                    producto.fk_cod_tienda,
-                    producto.fk_cod_categoria,
+                 
                     producto.nombre,
                     producto.cantidad,
                     producto.descripcion,
-                    producto.precio
+                    producto.precio,
+                    producto.imagen,
                 },
                     commandType: CommandType.Text);
             }
