@@ -1,0 +1,63 @@
+﻿@page "/productos-list"
+
+@using OnlineBlazorApp.Data.Model
+@using OnlineBlazorApp.Data.Service
+@inject IProductoService ProductoService
+@inject NavigationManager NavigationManager
+
+
+<h3>Lista de Productos</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Cantidad</th>
+            <th>Descripcion</th>
+            <th>precio</th>
+            <th>Imagen</th>
+            <th colspan="2">Accion</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (productos != null)
+        {
+            @foreach (var producto in productos)
+            {
+        <tr>
+            <td>@producto.nombre</td>
+            <td>@producto.cantidad</td>
+            <td>@producto.descripcion</td>
+            <td>@producto.precio</td>
+            <td>@producto.imagen</td>
+            <td>
+                <button type="button" class="btn btn-default" aria-label="Left Align" title="editar">
+                    <span class="oi oi-pencil" aria-hidden="true"></span>
+                </button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-default" aria-label="Left Align" title="eliminar">
+                    <span class="oi oi-trash" aria-hidden="true"></span>
+                </button>
+            </td>
+        </tr>
+            }
+        }
+    </tbody>
+
+</table>
+
+@code {
+
+    IEnumerable<Producto> productos;
+
+    protected override async Task OnInitializedAsync()
+    {
+        productos = await ProductoService.GetAllProductos();
+
+    }
+
+    void editarRegistro(int id)
+    {
+        NavigationManager.NavigateTo("/");
+    }
+}

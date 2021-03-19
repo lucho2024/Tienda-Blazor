@@ -10,7 +10,7 @@ using OnlineBlazorApp.Data.Model;
 
 namespace OnlineBlazorApp.Data.Service
 {
-    public class ProductoService : IProductoService
+    public class ProductoService :IProductoService
     {
         //Connecction Sql Server
         private readonly SqlConnectionConfiguration _configuration;
@@ -23,7 +23,7 @@ namespace OnlineBlazorApp.Data.Service
             using (var conn = new SqlConnection(_configuration.Value))
             {
                 var parameters = new DynamicParameters();
-               
+
                 parameters.Add("nombre", producto.nombre, DbType.String);
                 parameters.Add("cantidad", producto.cantidad, DbType.Int32);
                 parameters.Add("descripcion", producto.descripcion, DbType.String);
@@ -35,7 +35,7 @@ namespace OnlineBlazorApp.Data.Service
                                      VALUES (1, 1,@nombre,@cantidad,@descripcion,@precio,@imagen)";
                 await conn.ExecuteAsync(query, new
                 {
-                 
+
                     producto.nombre,
                     producto.cantidad,
                     producto.descripcion,
@@ -45,6 +45,17 @@ namespace OnlineBlazorApp.Data.Service
                     commandType: CommandType.Text);
             }
             return true;
+        }
+        public async Task<IEnumerable<Producto>> GetAllProductos()
+        {
+            IEnumerable<Producto> productos;
+            using (var conn = new SqlConnection(_configuration.Value))
+            {
+                const string query = "SELECT * FROM producto";
+                productos = await conn.QueryAsync<Producto>(query, commandType: CommandType.Text);
+            }
+
+            return productos;
         }
     }
 }

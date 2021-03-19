@@ -81,3 +81,5 @@ C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\Razor\Pages\
 C:\Users\luish\source\repos\OnlineBlazorApp\bin\Debug\netcoreapp3.1\BlazorInputFile.dll
 C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\ProductoAdd.razor.g.cs
 C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\Razor\Pages\ProductoAdd.razor.g.cs
+C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Productos.razor.g.cs
+C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\Razor\Pages\Productos.razor.g.cs
