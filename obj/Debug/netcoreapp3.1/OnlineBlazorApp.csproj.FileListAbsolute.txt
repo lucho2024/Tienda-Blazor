@@ -15,7 +15,6 @@ C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\OnlineBlazor
 C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\OnlineBlazorApp.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\OnlineBlazorApp.RazorComponent.input.cache
 C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\RazorDeclaration\App.razor.g.cs
-C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Counter.razor.g.cs
 C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\FetchData.razor.g.cs
 C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Index.razor.g.cs
 C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\MainLayout.razor.g.cs
@@ -28,7 +27,6 @@ C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\OnlineBlazor
 C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\OnlineBlazorApp.TagHelpers.output.cache
 C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\OnlineBlazorApp.RazorCoreGenerate.cache
 C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\Razor\App.razor.g.cs
-C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\Razor\Pages\Counter.razor.g.cs
 C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\Razor\Pages\FetchData.razor.g.cs
 C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\Razor\Pages\Index.razor.g.cs
 C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\Razor\Shared\MainLayout.razor.g.cs
@@ -468,3 +466,5 @@ C:\Users\User\OneDrive\Escritorio\Proyecto tienda\Tienda-Blazor\obj\Debug\netcor
 C:\Users\User\OneDrive\Escritorio\Proyecto tienda\Tienda-Blazor\obj\Debug\netcoreapp3.1\OnlineBlazorApp.genruntimeconfig.cache
 C:\Users\User\OneDrive\Escritorio\Proyecto tienda\Tienda-Blazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\Footer.razor.g.cs
 C:\Users\User\OneDrive\Escritorio\Proyecto tienda\Tienda-Blazor\obj\Debug\netcoreapp3.1\Razor\Shared\Footer.razor.g.cs
+C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\Footer.razor.g.cs
+C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\Razor\Shared\Footer.razor.g.cs
