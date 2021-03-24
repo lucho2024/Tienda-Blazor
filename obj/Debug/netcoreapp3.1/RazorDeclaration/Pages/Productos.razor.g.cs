@@ -112,7 +112,7 @@ using OnlineBlazorApp.Data.Service;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 49 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Productos.razor"
+#line 59 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Productos.razor"
        
 
     IEnumerable<Producto> productos;

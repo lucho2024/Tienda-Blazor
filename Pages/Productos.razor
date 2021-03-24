@@ -28,7 +28,17 @@
             <td>@producto.cantidad</td>
             <td>@producto.descripcion</td>
             <td>@producto.precio</td>
-            <td>@producto.imagen</td>
+            <td>
+                @if (@producto.imagen != null)
+                {
+            <img src="@producto.imagen" asp-append-version="true" style="width:100px;height:100px;" />
+            }
+                else
+                {
+            <img src="" alt="" class="img-thumbnail">
+                }
+                
+                    </td>
             <td>
                 <button type="button" class="btn btn-default" aria-label="Left Align" title="editar">
                     <span class="oi oi-pencil" aria-hidden="true"></span>

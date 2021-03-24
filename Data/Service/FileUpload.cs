@@ -14,7 +14,7 @@ namespace OnlineBlazorApp.Data.Service
         }
         public async Task UploadAsync(IFileListEntry fileEntry)
         {
-            var path = Path.Combine(_environment.ContentRootPath, "UploadImage", fileEntry.Name);
+            var path = Path.Combine(_environment.ContentRootPath, "wwwroot/UploadImage", fileEntry.Name);
             var ms = new MemoryStream();
             await fileEntry.Data.CopyToAsync(ms);
             using (FileStream file = new FileStream(path, FileMode.Create, FileAccess.Write))

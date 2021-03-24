@@ -19,7 +19,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="UploadImage\" />
+    <Folder Include="wwwroot\UploadImage\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\UploadImage\ERD con entidades coloreadas %28notación UML%29.png" />
+    <None Include="wwwroot\UploadImage\ox.png" />
+    <None Include="wwwroot\UploadImage\WhatsApp Image 2021-03-11 at 11.01.02 AM.jpeg" />
+    <None Include="wwwroot\UploadImage\zapatos.jpg" />
   </ItemGroup>
 
 </Project>

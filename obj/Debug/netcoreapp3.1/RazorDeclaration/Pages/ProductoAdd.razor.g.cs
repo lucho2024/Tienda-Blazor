@@ -135,7 +135,7 @@ using OnlineBlazorApp.Data.Service;
         file = files.FirstOrDefault();
         if(file!=null && verificarTipoImagen(Path.GetExtension(file.Name)))
         {
-            producto.imagen = file.Name;
+            producto.imagen ="/UploadImage/"+file.Name;
             await fileUpload.UploadAsync(file);
         }
     }

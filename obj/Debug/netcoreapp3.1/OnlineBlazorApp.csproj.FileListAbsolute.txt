@@ -230,3 +230,5 @@ C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\Razor\Pages\
 C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewImports.cshtml.g.cs
 C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewStart.cshtml.g.cs
+C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\LoginDisplay.razor.g.cs
+C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\Razor\Shared\LoginDisplay.razor.g.cs
