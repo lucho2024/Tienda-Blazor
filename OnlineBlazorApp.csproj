@@ -29,4 +29,10 @@
     <None Include="wwwroot\UploadImage\zapatos.jpg" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Pages\Index.razor">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
+  </ItemGroup>
+
 </Project>
