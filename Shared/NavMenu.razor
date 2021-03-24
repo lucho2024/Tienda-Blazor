@@ -1,49 +1,60 @@
-﻿<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <a class="navbar-brand" href="#">Hidden brand</a>
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item mr-1">
-                <NavLink activeClassName="active"
-                         className="nav-item link-light"
-                         href="identity/account/login">
-                    Login
-                </NavLink>
-            </li>
-            <li class="nav-item">
-                <NavLink activeClassName="active"
-                         className="nav-item link-light"
-                         href="identity/account/register">
-                    Sing up
-                </NavLink>
-            </li>
-            <li class="nav-item">
-                <NavLink activeClassName="active"
-                         className="nav-item link-light"
-                         href="lista">
-                    Lista usuarios
-                </NavLink>
-            </li>
-            <li class="nav-item">
-                <NavLink activeClassName="active"
-                         className="nav-item link-light"
-                         href="producto-add">
-                    Añadir producto
-                </NavLink>
-            </li>
-            <li class="nav-item">
-                <NavLink activeClassName="active"
-                         className="nav-item link-light"
-                         href="productos-list">
-                    Lista productos
-                </NavLink>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+﻿<div class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="header-left">
+                    <div class="logo">
+                        <a href="Index.razor"><img src="/Pruebaestilo/images/logo.png" alt="" /></a>
+                    </div>
+                    <div class="menu">
+                        <a class="toggleMenu" href="#"><img src="/Pruebaestilo/images/nav.png" alt="" /></a>
+                        <ul class="nav" id="nav">
+                            <li>
+                                <NavLink activeClassName="active"
+                                         className="nav-item link-light"
+                                         href="identity/account/login">
+                                    Login
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink activeClassName="active"
+                                         className="nav-item link-light"
+                                         href="identity/account/register">
+                                    Sing up
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink activeClassName="active"
+                                         className="nav-item link-light"
+                                         href="lista">
+                                    Lista usuarios
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink activeClassName="active"
+                                         className="nav-item link-light"
+                                         href="producto-add">
+                                    Añadir producto
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink activeClassName="active"
+                                         className="nav-item link-light"
+                                         href="productos-list">
+                                    Lista productos
+                                </NavLink>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="header_right">
+                    <!-- start search-->
+                    <a href="checkout.html"><img src="/Pruebaestilo/images/carrito.png" width="25px"></a>
+                    <!----search-scripts---->
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
     </div>
-</nav>
+</div>
