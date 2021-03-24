@@ -4,54 +4,58 @@
             <div class="col-md-12">
                 <div class="header-left">
                     <div class="logo">
-                        <a href="Index.razor"><img src="/Pruebaestilo/images/logo.png" alt="" /></a>
+                        <NavLink href="">
+                            <img src="/Estilo/images/logo.png" alt="" />
+                        </NavLink>
+                        
                     </div>
                     <div class="menu">
-                        <a class="toggleMenu" href="#"><img src="/Pruebaestilo/images/nav.png" alt="" /></a>
+                        <a class="toggleMenu" href="#"><img src="/Estilo/images/nav.png" alt="" /></a>
                         <ul class="nav" id="nav">
                             <li>
-                                <NavLink activeClassName="active"
-                                         className="nav-item link-light"
-                                         href="identity/account/login">
-                                    Login
+                                <NavLink href="Shop">
+                                    Tienda
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink activeClassName="active"
-                                         className="nav-item link-light"
-                                         href="identity/account/register">
-                                    Sing up
+                                <NavLink href="Categorias">
+                                    Categorias
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink activeClassName="active"
-                                         className="nav-item link-light"
-                                         href="lista">
-                                    Lista usuarios
+                                <NavLink href="Devoluciones">
+                                    Devoluciones
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink activeClassName="active"
-                                         className="nav-item link-light"
-                                         href="producto-add">
-                                    Añadir producto
+                                <NavLink href="Iniciarsesion">
+                                    Iniciar sesion
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink activeClassName="active"
-                                         className="nav-item link-light"
-                                         href="productos-list">
-                                    Lista productos
+                                <NavLink href="register.html">
+                                    Registrarse
                                 </NavLink>
                             </li>
                         </ul>
+                        
                     </div>
                     <div class="clear"></div>
                 </div>
                 <div class="header_right">
                     <!-- start search-->
-                    <a href="checkout.html"><img src="/Pruebaestilo/images/carrito.png" width="25px"></a>
+                    <NavLink href="Carrito">
+                        <img src="/Estilo/images/carrito.png" width="25px" alt="Ver carrito de compras">
+                    </NavLink>
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    <NavLink href="Editardatos">
+                        <img src="/Estilo/images/lapiz.png" width="25px" alt="Editar datos de usuario">
+                    </NavLink>
                     <!----search-scripts---->
+
+
                     <div class="clear"></div>
                 </div>
             </div>

@@ -468,3 +468,15 @@ C:\Users\User\OneDrive\Escritorio\Proyecto tienda\Tienda-Blazor\obj\Debug\netcor
 C:\Users\User\OneDrive\Escritorio\Proyecto tienda\Tienda-Blazor\obj\Debug\netcoreapp3.1\OnlineBlazorApp.genruntimeconfig.cache
 C:\Users\User\OneDrive\Escritorio\Proyecto tienda\Tienda-Blazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\Footer.razor.g.cs
 C:\Users\User\OneDrive\Escritorio\Proyecto tienda\Tienda-Blazor\obj\Debug\netcoreapp3.1\Razor\Shared\Footer.razor.g.cs
+C:\Users\User\OneDrive\Escritorio\Proyecto tienda\Tienda-Blazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Shop.razor.g.cs
+C:\Users\User\OneDrive\Escritorio\Proyecto tienda\Tienda-Blazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Single.razor.g.cs
+C:\Users\User\OneDrive\Escritorio\Proyecto tienda\Tienda-Blazor\obj\Debug\netcoreapp3.1\Razor\Pages\Shop.razor.g.cs
+C:\Users\User\OneDrive\Escritorio\Proyecto tienda\Tienda-Blazor\obj\Debug\netcoreapp3.1\Razor\Pages\Single.razor.g.cs
+C:\Users\User\OneDrive\Escritorio\Proyecto tienda\Tienda-Blazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Categorias.razor.g.cs
+C:\Users\User\OneDrive\Escritorio\Proyecto tienda\Tienda-Blazor\obj\Debug\netcoreapp3.1\Razor\Pages\Categorias.razor.g.cs
+C:\Users\User\OneDrive\Escritorio\Proyecto tienda\Tienda-Blazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Carrito.razor.g.cs
+C:\Users\User\OneDrive\Escritorio\Proyecto tienda\Tienda-Blazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Devoluciones.razor.g.cs
+C:\Users\User\OneDrive\Escritorio\Proyecto tienda\Tienda-Blazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Editardatos.razor.g.cs
+C:\Users\User\OneDrive\Escritorio\Proyecto tienda\Tienda-Blazor\obj\Debug\netcoreapp3.1\Razor\Pages\Carrito.razor.g.cs
+C:\Users\User\OneDrive\Escritorio\Proyecto tienda\Tienda-Blazor\obj\Debug\netcoreapp3.1\Razor\Pages\Devoluciones.razor.g.cs
+C:\Users\User\OneDrive\Escritorio\Proyecto tienda\Tienda-Blazor\obj\Debug\netcoreapp3.1\Razor\Pages\Editardatos.razor.g.cs
