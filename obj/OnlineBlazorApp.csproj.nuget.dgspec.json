@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\OneDrive\\Escritorio\\proyecto_tienda\\Tienda-Blazor\\OnlineBlazorApp.csproj": {}
+    "C:\\Users\\luish\\source\\repos\\OnlineBlazorApp\\OnlineBlazorApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\OneDrive\\Escritorio\\proyecto_tienda\\Tienda-Blazor\\OnlineBlazorApp.csproj": {
+    "C:\\Users\\luish\\source\\repos\\OnlineBlazorApp\\OnlineBlazorApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\OneDrive\\Escritorio\\proyecto_tienda\\Tienda-Blazor\\OnlineBlazorApp.csproj",
+        "projectUniqueName": "C:\\Users\\luish\\source\\repos\\OnlineBlazorApp\\OnlineBlazorApp.csproj",
         "projectName": "OnlineBlazorApp",
-        "projectPath": "C:\\Users\\User\\OneDrive\\Escritorio\\proyecto_tienda\\Tienda-Blazor\\OnlineBlazorApp.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\OneDrive\\Escritorio\\proyecto_tienda\\Tienda-Blazor\\obj\\",
+        "projectPath": "C:\\Users\\luish\\source\\repos\\OnlineBlazorApp\\OnlineBlazorApp.csproj",
+        "packagesPath": "C:\\Users\\luish\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\luish\\source\\repos\\OnlineBlazorApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\luish\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -93,7 +93,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
