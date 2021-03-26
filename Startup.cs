@@ -33,6 +33,7 @@ namespace OnlineBlazorApp
             services.AddScoped<IUsuarioService,UsuarioService>();
             services.AddScoped<IProductoService, ProductoService>();
             services.AddScoped<IFileUpload, FileUpload>();
+            services.AddScoped<ICategoriaService, CategoriaService>();
 
 
             //Conecction DB

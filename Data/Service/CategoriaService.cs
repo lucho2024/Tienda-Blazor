@@ -40,5 +40,17 @@ namespace OnlineBlazorApp.Data.Service
             }
             return true;
         }
+
+        public async Task<IEnumerable<Categoria>> GetAllCategorias()
+        {
+            IEnumerable<Categoria> categorias;
+            using (var conn = new SqlConnection(_configuration.Value))
+            {
+                const string query = "SELECT * FROM categoria";
+                categorias = await conn.QueryAsync<Categoria>(query, commandType: CommandType.Text);
+            }
+
+            return categorias;
+        }
     }
 }

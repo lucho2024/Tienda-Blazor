@@ -3,26 +3,41 @@
 @using OnlineBlazorApp.Data.Service
 
 @inject IProductoService ProductoService
+@inject ICategoriaService CategoriaService
 @inject NavigationManager NavigationManager
 @inject IFileUpload fileUpload
 
 <EditForm Model="@producto" OnValidSubmit="@ProductoInsert">
     <div class="form-group">
         <label for="name" class="form-label">Nombre : </label>
-        <input type="text" class="form-control" id="name" @bind="producto.nombre"/>
+        <input type="text" class="form-control" id="name" @bind="producto.nombre" />
     </div>
     <div class="form-group">
         <label for="cantidad">Cantidad</label>
-        <input type="number" class="form-control" id="cantidad" @bind="producto.cantidad"
-                />
+        <input type="number" class="form-control" id="cantidad" @bind="producto.cantidad" />
+    </div>
+    <div class="form-group">
+        <label for="categoria" class="form-label">Categoria : </label>
+        <select name="categoria" id="categoria" @bind="producto.fk_cod_categoria">
+            @if (categorias != null)
+            {
+                @foreach (var categoria in categorias)
+                {
+                    <option value="@categoria.pk_cod_categoria">@categoria.nombre</option>
+                }
+            }
+
+
+        </select>
+
     </div>
     <div class="form-group">
         <label for="descripcion" class="form-label">Descripcion : </label>
-        <input type="text" class="form-control" id="descripcion" @bind="producto.descripcion"/>
+        <input type="text" class="form-control" id="descripcion" @bind="producto.descripcion" />
     </div>
     <div class="form-group">
         <label for="precio">Precio</label>
-        <input type="number" class="form-control" id="precio" @bind="producto.precio"/>
+        <input type="number" class="form-control" id="precio" @bind="producto.precio" />
     </div>
     <div class="form-group">
         <label for="imagen">Imagen</label>
@@ -42,6 +57,13 @@
 
     Producto producto = new Producto();
     IFileListEntry file;
+    IEnumerable<Categoria> categorias;
+
+    protected override async Task OnInitializedAsync()
+    {
+        categorias = await CategoriaService.GetAllCategorias();
+
+    }
 
     protected async Task ProductoInsert()
     {
@@ -58,13 +80,13 @@
     async Task SeleccionarArchivo(IFileListEntry[] files)
     {
         file = files.FirstOrDefault();
-        if(file!=null && verificarTipoImagen(Path.GetExtension(file.Name)))
+        if (file != null && verificarTipoImagen(Path.GetExtension(file.Name)))
         {
-            producto.imagen ="/UploadImage/"+file.Name;
+            producto.imagen = "/UploadImage/" + file.Name;
             await fileUpload.UploadAsync(file);
         }
     }
-     async Task HandleFileSelected(IFileListEntry[] files)
+    async Task HandleFileSelected(IFileListEntry[] files)
     {
         file = files.FirstOrDefault();
         if (file != null)
@@ -72,6 +94,9 @@
             await fileUpload.UploadAsync(file);
         }
     }
+
+
+
 
     void Cancel()
     {

@@ -112,11 +112,18 @@ using OnlineBlazorApp.Data.Service;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 41 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\ProductoAdd.razor"
+#line 56 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\ProductoAdd.razor"
        
 
     Producto producto = new Producto();
     IFileListEntry file;
+    IEnumerable<Categoria> categorias;
+
+    protected override async Task OnInitializedAsync()
+    {
+        categorias = await CategoriaService.GetAllCategorias();
+
+    }
 
     protected async Task ProductoInsert()
     {
@@ -133,13 +140,13 @@ using OnlineBlazorApp.Data.Service;
     async Task SeleccionarArchivo(IFileListEntry[] files)
     {
         file = files.FirstOrDefault();
-        if(file!=null && verificarTipoImagen(Path.GetExtension(file.Name)))
+        if (file != null && verificarTipoImagen(Path.GetExtension(file.Name)))
         {
-            producto.imagen ="/UploadImage/"+file.Name;
+            producto.imagen = "/UploadImage/" + file.Name;
             await fileUpload.UploadAsync(file);
         }
     }
-     async Task HandleFileSelected(IFileListEntry[] files)
+    async Task HandleFileSelected(IFileListEntry[] files)
     {
         file = files.FirstOrDefault();
         if (file != null)
@@ -147,6 +154,9 @@ using OnlineBlazorApp.Data.Service;
             await fileUpload.UploadAsync(file);
         }
     }
+
+
+
 
     void Cancel()
     {
@@ -158,6 +168,7 @@ using OnlineBlazorApp.Data.Service;
 #nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IFileUpload fileUpload { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ICategoriaService CategoriaService { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IProductoService ProductoService { get; set; }
     }
 }
