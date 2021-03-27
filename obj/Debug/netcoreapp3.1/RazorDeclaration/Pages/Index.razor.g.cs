@@ -89,6 +89,13 @@ using System.IO;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Index.razor"
+using Microsoft.AspNetCore.Http;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/")]
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -97,6 +104,7 @@ using System.IO;
         {
         }
         #pragma warning restore 1998
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IHttpContextAccessor httpContextAccessor { get; set; }
     }
 }
 #pragma warning restore 1591

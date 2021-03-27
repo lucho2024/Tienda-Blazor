@@ -8,7 +8,7 @@ namespace OnlineBlazorApp.Data.Model
     public class Producto
     {
         public int pk_cod_producto { get; set; }
-        public int fk_cod_tienda { get; set; }
+   
         public int fk_cod_categoria { get; set; }
         public string nombre { get; set; }
         public int cantidad { get; set; }

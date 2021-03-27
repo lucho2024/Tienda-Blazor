@@ -31,8 +31,8 @@ namespace OnlineBlazorApp.Data.Service
                 parameters.Add("precio", producto.precio, DbType.Double);
                 parameters.Add("imagen", producto.imagen, DbType.String);
 
-                const string query = @"INSERT INTO producto(fk_cod_tienda,fk_cod_categoria,nombre,cantidad,descripcion,precio,imagen)
-                                     VALUES (1, @fk_cod_categoria,@nombre,@cantidad,@descripcion,@precio,@imagen)";
+                const string query = @"INSERT INTO producto(fk_cod_categoria,nombre,cantidad,descripcion,precio,imagen)
+                                     VALUES (@fk_cod_categoria,@nombre,@cantidad,@descripcion,@precio,@imagen)";
 
                 Console.WriteLine("My debug output."+query);
                 await conn.ExecuteAsync(query, new

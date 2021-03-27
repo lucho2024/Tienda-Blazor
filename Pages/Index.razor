@@ -1,7 +1,17 @@
 ﻿@page "/"
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor httpContextAccessor
+
 <div class="banner">
     <!-- start slider -->
     <div id="fwslider">
+        @if (httpContextAccessor.HttpContext.User.Identity.Name != null)
+        {
+            
+        <h3>@httpContextAccessor.HttpContext.User.Identity.Name</h3>
+        }
+
+
         <div class="slider_container">
             <div class="slide">
                 <!-- Slide image -->
@@ -70,21 +80,21 @@
         <div class="row">
             <div class="col-md-3 top_box">
                 <div class="view view-ninth">
-                    
-                        <NavLink activeClassName="active"
-                                 className="nav-item link-light"
-                                 href="Single">
+
+                    <NavLink activeClassName="active"
+                             className="nav-item link-light"
+                             href="Single">
 
 
-                            <img src="/Estilo/images/nike3.jpg" class="img-responsive" alt="" />
-                            <div class="mask mask-1"> </div>
-                            <div class="mask mask-2"> </div>
-                            <div class="content">
-                                <h2>TIENDA VIRTUAL</h2>
-                                <p>AQUIIIIIII USTED ESCRIBEEEEEEEEEEEEEEEEEE</p>
-                            </div>
-                        </NavLink>
-                    
+                        <img src="/Estilo/images/nike3.jpg" class="img-responsive" alt="" />
+                        <div class="mask mask-1"> </div>
+                        <div class="mask mask-2"> </div>
+                        <div class="content">
+                            <h2>TIENDA VIRTUAL</h2>
+                            <p>AQUIIIIIII USTED ESCRIBEEEEEEEEEEEEEEEEEE</p>
+                        </div>
+                    </NavLink>
+
                 </div>
                 <h4 class="m_4"><a href="#">TIENDA VIRTUAL</a></h4>
                 <p class="m_5">TIENDA VIRTUAL</p>
@@ -102,7 +112,7 @@
                             <p>TIENDA VIRTUAL</p>
                         </div>
                     </NavLink>
-</div>
+                </div>
                 <h4 class="m_4"><a href="#">TIENDA VIRTUAL</a></h4>
                 <p class="m_5">TIENDA VIRTUAL</p>
             </div>
@@ -119,7 +129,7 @@
                             <p>TIENDA VIRTUAL</p>
                         </div>
                     </NavLink>
-</div>
+                </div>
                 <h4 class="m_4"><a href="#">TIENDA VIRTUAL</a></h4>
                 <p class="m_5">TIENDA VIRTUAL</p>
             </div>
@@ -136,7 +146,7 @@
                             <p>TIENDA VIRTUAL</p>
                         </div>
                     </NavLink>
-</div>
+                </div>
                 <h4 class="m_4"><a href="#">TIENDA VIRTUAL</a></h4>
                 <p class="m_5">TIENDA VIRTUAL</p>
             </div>

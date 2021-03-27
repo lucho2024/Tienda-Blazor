@@ -19,8 +19,7 @@ namespace OnlineBlazorApp.Data.Model
         public byte PhoneNumberConfirmed { get; set; }
         public byte TwoFactorEnabled { get; set; }
         public string LockoutEnd { get; set; }
-        public int fk_cod_tienda { get; set; }
-
+     
     }
     
 }
