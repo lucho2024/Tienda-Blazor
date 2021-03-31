@@ -726,3 +726,10 @@ C:\Users\User\OneDrive\Escritorio\Proyecto_tienda\Tienda-Blazor\obj\Debug\netcor
 C:\Users\User\OneDrive\Escritorio\Proyecto_tienda\Tienda-Blazor\obj\Debug\netcoreapp3.1\OnlineBlazorApp.dll
 C:\Users\User\OneDrive\Escritorio\Proyecto_tienda\Tienda-Blazor\obj\Debug\netcoreapp3.1\OnlineBlazorApp.pdb
 C:\Users\User\OneDrive\Escritorio\Proyecto_tienda\Tienda-Blazor\obj\Debug\netcoreapp3.1\OnlineBlazorApp.genruntimeconfig.cache
+C:\Users\luish\source\repos\OnlineBlazorApp\bin\Debug\netcoreapp3.1\Blazored.SessionStorage.dll
+C:\Users\luish\source\repos\OnlineBlazorApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authorization.dll
+C:\Users\luish\source\repos\OnlineBlazorApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Components.dll
+C:\Users\luish\source\repos\OnlineBlazorApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Components.Forms.dll
+C:\Users\luish\source\repos\OnlineBlazorApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Components.Web.dll
+C:\Users\luish\source\repos\OnlineBlazorApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Metadata.dll
+C:\Users\luish\source\repos\OnlineBlazorApp\bin\Debug\netcoreapp3.1\Microsoft.JSInterop.dll

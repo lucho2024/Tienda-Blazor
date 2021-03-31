@@ -1,24 +1,48 @@
 ﻿@page "/categorias"
-
+@using OnlineBlazorApp.Data.Model
+@using OnlineBlazorApp.Data.Service
+@inject ICategoriaService CategoriaService
+@inject NavigationManager NavigationManager
 <div class="main">
     <div class="shop_top">
         <div class="container">
             <div class="row ex_box">
                 <h3 class="m_2">Categorias</h3>
-                <div class="col-md-4 team1">
-                    <div class="img_section magnifier2">
-                        
-                        <NavLink activeClassName="active"
-                                 class="fancybox"
-                                 href="/Estilo/images/nike2.jpg" data-fancybox-group="gallery" title="NIKE RUNNING">
-                            <img src="/Estilo/images/nike2.jpg" class="img-responsive" alt=""><span> </span>
-                            <div class="img_section_txt">
-                                nike
+                <br />
+                @if (categorias != null)
+                {
+                
+                    @foreach (var categoria in categorias)
+                    {
+                        <div class="col-md-4">
+                            <div class="img_section magnifier2">
+                                <NavLink activeClassName="active"
+                                         class="fancybox"
+                                         href=@categoria.imagen data-fancybox-group="gallery" title="NIKE RUNNING">
+                                    <img src=@categoria.imagen class="img-responsive" alt=""><span> </span>
+                                    <div class="img_section_txt">
+                                        @categoria.nombre
+                                    </div>
+                                </NavLink>
                             </div>
-                        </NavLink>
-                    </div>
-                </div>
+                        </div>
+                      
+                    }
+                }
             </div>
         </div>
     </div>
 </div>
+
+@code {
+
+    IEnumerable<Categoria> categorias;
+
+    protected override async Task OnInitializedAsync()
+    {
+        categorias = await CategoriaService.GetAllCategorias();
+
+    }
+
+
+}

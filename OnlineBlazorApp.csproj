@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Blazored.SessionStorage" Version="1.0.13" />
     <PackageReference Include="BlazorInputFile" Version="0.2.0" />
     <PackageReference Include="Dapper" Version="2.0.78" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.13" />
@@ -16,17 +17,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\UploadImage\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="wwwroot\UploadImage\ERD con entidades coloreadas %28notación UML%29.png" />
-    <None Include="wwwroot\UploadImage\ox.png" />
-    <None Include="wwwroot\UploadImage\WhatsApp Image 2021-03-11 at 11.01.02 AM.jpeg" />
-    <None Include="wwwroot\UploadImage\zapatos.jpg" />
   </ItemGroup>
 
   <ItemGroup>

@@ -89,6 +89,20 @@ using System.IO;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Categorias.razor"
+using OnlineBlazorApp.Data.Model;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Categorias.razor"
+using OnlineBlazorApp.Data.Service;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/categorias")]
     public partial class Categorias : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -97,6 +111,25 @@ using System.IO;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 37 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Categorias.razor"
+       
+
+    IEnumerable<Categoria> categorias;
+
+    protected override async Task OnInitializedAsync()
+    {
+        categorias = await CategoriaService.GetAllCategorias();
+
+    }
+
+
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ICategoriaService CategoriaService { get; set; }
     }
 }
 #pragma warning restore 1591

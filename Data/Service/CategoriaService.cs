@@ -46,7 +46,7 @@ namespace OnlineBlazorApp.Data.Service
             IEnumerable<Categoria> categorias;
             using (var conn = new SqlConnection(_configuration.Value))
             {
-                const string query = "SELECT * FROM categoria";
+                const string query = "SELECT * FROM categoria ";
                 categorias = await conn.QueryAsync<Categoria>(query, commandType: CommandType.Text);
             }
 

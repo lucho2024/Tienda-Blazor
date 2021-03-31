@@ -34,7 +34,7 @@ namespace OnlineBlazorApp.Data.Service
                 const string query = @"INSERT INTO producto(fk_cod_categoria,nombre,cantidad,descripcion,precio,imagen)
                                      VALUES (@fk_cod_categoria,@nombre,@cantidad,@descripcion,@precio,@imagen)";
 
-                Console.WriteLine("My debug output."+query);
+              
                 await conn.ExecuteAsync(query, new
                 {
 
