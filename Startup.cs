@@ -1,3 +1,4 @@
+using Blazored.SessionStorage;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
@@ -32,8 +33,11 @@ namespace OnlineBlazorApp
             services.AddSingleton<WeatherForecastService>();
             services.AddScoped<IUsuarioService,UsuarioService>();
             services.AddScoped<IProductoService, ProductoService>();
-            services.AddScoped<IFileUpload, FileUpload>();
+            services.AddScoped<IFileUpload, FileUpload>(); 
             services.AddScoped<ICategoriaService, CategoriaService>();
+            services.AddScoped<IAspNetUsersService, AspNetUsersService>();
+            services.AddBlazoredSessionStorage();
+
 
 
             //Conecction DB

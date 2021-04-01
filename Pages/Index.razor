@@ -1,14 +1,23 @@
 ﻿@page "/"
 @using Microsoft.AspNetCore.Http
+@using OnlineBlazorApp.Data.Model
+@using OnlineBlazorApp.Data.Service
+
+
+@inject Blazored.SessionStorage.ISessionStorageService sessionIDU
+
+
+
+@inject IAspNetUsersService AspNetUsersService
 @inject IHttpContextAccessor httpContextAccessor
 
 <div class="banner">
     <!-- start slider -->
     <div id="fwslider">
-        @if (httpContextAccessor.HttpContext.User.Identity.Name != null)
+        @if (usuario != null)
         {
-            
-        <h3>@httpContextAccessor.HttpContext.User.Identity.Name</h3>
+
+            <h3>@usuario.First().Id</h3>
         }
         <div class="slider_container">
             <div class="slide">
@@ -151,3 +160,20 @@
         </div>
     </div>
 </div>
+@code {
+    IEnumerable<AspNetUsers> usuario;
+    string id;
+
+    protected override async Task OnInitializedAsync()
+    {
+    @if (httpContextAccessor.HttpContext.User.Identity.Name != null)
+    {
+        usuario = await AspNetUsersService.GetUsuario("obama12@gmail.com");
+         id= usuario.First().Id;
+        
+    }
+        sessionIDU.SetItemAsync("idu", id);
+    }
+
+}
+

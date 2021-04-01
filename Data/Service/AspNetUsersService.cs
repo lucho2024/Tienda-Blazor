@@ -11,32 +11,25 @@ using Microsoft.AspNetCore.Http;
 
 namespace OnlineBlazorApp.Data.Service
 {
-    public class AspNetUsersService
+    public class AspNetUsersService : IAspNetUsersService
     {
-        IHttpContextAccessor httpContextAccessor;
+
         //Connecction Sql Server
         private readonly SqlConnectionConfiguration _configuration;
         public AspNetUsersService(SqlConnectionConfiguration configuration)
         {
             _configuration = configuration;
         }
-        public async Task<IEnumerable<AspNetUsers>> GetUsuario()
+        public async Task<IEnumerable<AspNetUsers>> GetUsuario(string email)
         {
-            IEnumerable<AspNetUsers> usuario;
+            IEnumerable<AspNetUsers> usuarios;
             using (var conn = new SqlConnection(_configuration.Value))
             {
-                if (httpContextAccessor.HttpContext.User.Identity.Name != null)
-                {
-                    var query = "SELECT * FROM AspNetUsers where email = "+
-                        httpContextAccessor.HttpContext.User.Identity.Name;
-                    usuario = await conn.QueryAsync<AspNetUsers>(query, commandType: CommandType.Text);
-
-                    return usuario;
-                }
-                return null;
+                string query = @"select * from AspNetUsers where email = "+"'"+email+"'";
+                usuarios = await conn.QueryAsync<AspNetUsers>(query, commandType: CommandType.Text);
+                
             }
-           
-           
+            return usuarios;
         }
     }
 }

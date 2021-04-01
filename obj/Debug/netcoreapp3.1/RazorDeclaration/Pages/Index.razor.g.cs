@@ -96,6 +96,20 @@ using Microsoft.AspNetCore.Http;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Index.razor"
+using OnlineBlazorApp.Data.Model;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Index.razor"
+using OnlineBlazorApp.Data.Service;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/")]
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -104,7 +118,44 @@ using Microsoft.AspNetCore.Http;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 163 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Index.razor"
+       
+    IEnumerable<AspNetUsers> usuario;
+    string id;
+
+    protected override async Task OnInitializedAsync()
+    {
+    
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 169 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Index.razor"
+     if (httpContextAccessor.HttpContext.User.Identity.Name != null)
+    {
+        usuario = await AspNetUsersService.GetUsuario("obama12@gmail.com");
+         id= usuario.First().Id;
+        
+    }
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 174 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Index.razor"
+     
+        sessionIDU.SetItemAsync("idu", id);
+    }
+
+
+#line default
+#line hidden
+#nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IHttpContextAccessor httpContextAccessor { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IAspNetUsersService AspNetUsersService { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private Blazored.SessionStorage.ISessionStorageService sessionIDU { get; set; }
     }
 }
 #pragma warning restore 1591

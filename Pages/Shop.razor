@@ -1,6 +1,12 @@
 ﻿@page "/shop"
 @using OnlineBlazorApp.Data.Model
 @using OnlineBlazorApp.Data.Service
+@using Microsoft.AspNetCore.Http
+
+@inject Blazored.SessionStorage.ISessionStorageService session
+@inject IHttpContextAccessor httpContextAccessor
+
+
 @inject IProductoService ProductoService
 @inject NavigationManager NavigationManager
 
@@ -8,13 +14,19 @@
     <div class="shop_top">
         <div class="container">
             <div class="row shop_box-top">
+                @if (id != null)
+                {
+                    //<!--<h1>@id</h1>-->
+                <h1>@httpContextAccessor.HttpContext.User.Identity.Name</h1>
+
+                }
                 @if (productos != null)
                 {
                     @foreach (var producto in productos)
                     {
                         <div class="col-md-3 shop_box">
                             <a href="Single">
-                                <img src="@producto.imagen" asp-append-version="true"  class="img-responsive" alt="" />            
+                                <img src="@producto.imagen" asp-append-version="true" class="img-responsive" alt="" />
                                 <div class="shop_desc">
                                     <h3><a href="#">@producto.nombre</a></h3>
                                     <p>@producto.descripcion </p>
@@ -25,16 +37,20 @@
                                     }
                                     <span class="actual">@producto.precio</span><br>
                                     <ul class="buttons">
-                                        <li class="cart"><a href="#">Add To Cart</a></li>
-                                        <li class="shop_btn"><a href="#">Read More</a></li>
-                                        <div class="clear"> </div>
+                                        @if (httpContextAccessor.HttpContext.User.Identity.Name != null)
+                                        {
+                                            <li class="cart"><a href="#">Add To Cart</a></li>
+                                            <li class="shop_btn"><a href="#">Read More</a></li>
+                                            <div class="clear"> </div>
+                                        }
+
                                     </ul>
                                 </div>
                             </a>
                         </div>
                     }
                 }
-            </div>    
+            </div>
         </div>
     </div>
 </div>
@@ -42,11 +58,13 @@
 @code {
 
     IEnumerable<Producto> productos;
+    string id = null;
 
     protected override async Task OnInitializedAsync()
     {
         productos = await ProductoService.GetAllProductos();
-
+        id = await session.GetItemAsync<string>("idu");
+        id.Replace("{ }", "");
     }
 
     void editarRegistro(int id)
