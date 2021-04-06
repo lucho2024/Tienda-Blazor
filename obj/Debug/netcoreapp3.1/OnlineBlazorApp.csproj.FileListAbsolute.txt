@@ -733,3 +733,7 @@ C:\Users\luish\source\repos\OnlineBlazorApp\bin\Debug\netcoreapp3.1\Microsoft.As
 C:\Users\luish\source\repos\OnlineBlazorApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Components.Web.dll
 C:\Users\luish\source\repos\OnlineBlazorApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Metadata.dll
 C:\Users\luish\source\repos\OnlineBlazorApp\bin\Debug\netcoreapp3.1\Microsoft.JSInterop.dll
+C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\ActualizarProducto.razor.g.cs
+C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\Razor\Pages\ActualizarProducto.razor.g.cs
+C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Shared\Categoria.razor.g.cs
+C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\Categoria.razor.g.cs

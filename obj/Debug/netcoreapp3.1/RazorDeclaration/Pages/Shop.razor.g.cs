@@ -119,7 +119,7 @@ using Microsoft.AspNetCore.Http;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 58 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Shop.razor"
+#line 56 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Shop.razor"
        
 
     IEnumerable<Producto> productos;
@@ -128,8 +128,8 @@ using Microsoft.AspNetCore.Http;
     protected override async Task OnInitializedAsync()
     {
         productos = await ProductoService.GetAllProductos();
-        id = await session.GetItemAsync<string>("idu");
-        id.Replace("{ }", "");
+      //  id = await session.GetItemAsync<string>("idu");
+       
     }
 
     void editarRegistro(int id)

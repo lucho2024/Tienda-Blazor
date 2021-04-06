@@ -1,26 +1,21 @@
-﻿@page "/shop"
+﻿@page "/categoria/{categoria}"
+
 @using OnlineBlazorApp.Data.Model
 @using OnlineBlazorApp.Data.Service
 @using Microsoft.AspNetCore.Http
 
-@inject Blazored.SessionStorage.ISessionStorageService session
-@inject IHttpContextAccessor httpContextAccessor
-
-
 @inject IProductoService ProductoService
 @inject NavigationManager NavigationManager
+@inject IHttpContextAccessor httpContextAccessor
 
 <div class="main">
     <div class="shop_top">
         <div class="container">
             <div class="row shop_box-top">
-                @if (@httpContextAccessor.HttpContext.User.Identity.Name != null)
-                {    
-                <h1>@httpContextAccessor.HttpContext.User.Identity.Name</h1>
-                }
-                @if (productos != null)
+
+                @if (productosc != null)
                 {
-                    @foreach (var producto in productos)
+                    @foreach (var producto in productosc)
                     {
                         <div class="col-md-3 shop_box">
                             <a href="Single">
@@ -52,21 +47,18 @@
         </div>
     </div>
 </div>
-
 @code {
 
-    IEnumerable<Producto> productos;
-    string id = null;
+    [Parameter]
+    public string categoria { get; set; }
+
+    IEnumerable<Producto> productosc;
 
     protected override async Task OnInitializedAsync()
     {
-        productos = await ProductoService.GetAllProductos();
-      //  id = await session.GetItemAsync<string>("idu");
-       
+        productosc = await ProductoService.GetProductoByCategory(categoria);
+
     }
 
-    void editarRegistro(int id)
-    {
-        NavigationManager.NavigateTo("/");
-    }
+
 }

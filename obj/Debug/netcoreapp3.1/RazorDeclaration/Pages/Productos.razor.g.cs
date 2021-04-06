@@ -112,7 +112,7 @@ using OnlineBlazorApp.Data.Service;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 59 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Productos.razor"
+#line 64 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Productos.razor"
        
 
     IEnumerable<Producto> productos;
@@ -126,6 +126,13 @@ using OnlineBlazorApp.Data.Service;
     void editarRegistro(int id)
     {
         NavigationManager.NavigateTo("/");
+    }
+
+    async void eliminarRegistro(int id)
+    {
+       await ProductoService.deleteIdproducto(id);
+        NavigationManager.NavigateTo("/");
+
     }
 
 #line default

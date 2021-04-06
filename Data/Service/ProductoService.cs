@@ -10,7 +10,7 @@ using OnlineBlazorApp.Data.Model;
 
 namespace OnlineBlazorApp.Data.Service
 {
-    public class ProductoService :IProductoService
+    public class ProductoService : IProductoService
     {
         //Connecction Sql Server
         private readonly SqlConnectionConfiguration _configuration;
@@ -34,7 +34,7 @@ namespace OnlineBlazorApp.Data.Service
                 const string query = @"INSERT INTO producto(fk_cod_categoria,nombre,cantidad,descripcion,precio,imagen)
                                      VALUES (@fk_cod_categoria,@nombre,@cantidad,@descripcion,@precio,@imagen)";
 
-              
+
                 await conn.ExecuteAsync(query, new
                 {
 
@@ -60,5 +60,32 @@ namespace OnlineBlazorApp.Data.Service
 
             return productos;
         }
+
+        public async Task<bool> deleteIdproducto(int id)
+        {
+            using (var conn = new SqlConnection(_configuration.Value))
+            {
+                string query = "delete FROM producto where pk_cod_producto = " + id;
+                await conn.QueryAsync<Producto>(query, commandType: CommandType.Text);
+            }
+
+            return true;
+        }
+
+        public async Task<IEnumerable<Producto>> GetProductoByCategory(string pk_categoria)
+        {
+            IEnumerable<Producto> productos;
+            using (var conn = new SqlConnection(_configuration.Value))
+            {
+                string query = "select p.nombre,p.descripcion,p.precio,p.imagen from producto as p join categoria" +
+                    " on p.fk_cod_categoria=categoria.pk_cod_categoria" +
+                    " where categoria.pk_cod_categoria = " + pk_categoria;
+                productos = await conn.QueryAsync<Producto>(query, commandType: CommandType.Text);
+            }
+
+            return productos;
+        }
+
+
     }
 }

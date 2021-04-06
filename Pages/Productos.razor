@@ -10,6 +10,7 @@
 <table class="table">
     <thead>
         <tr>
+            <th>PK</th>
             <th>Nombre</th>
             <th>Cantidad</th>
             <th>Descripcion</th>
@@ -24,6 +25,7 @@
             @foreach (var producto in productos)
             {
         <tr>
+            <td>@producto.pk_cod_producto</td>
             <td>@producto.nombre</td>
             <td>@producto.cantidad</td>
             <td>@producto.descripcion</td>
@@ -45,7 +47,10 @@
                 </button>
             </td>
             <td>
-                <button type="button" class="btn btn-default" aria-label="Left Align" title="eliminar">
+                <button type="button" 
+                        @onclick="() => eliminarRegistro(producto.pk_cod_producto)" 
+                        class="btn btn-default" aria-label="Left Align" 
+                        title="eliminar">
                     <span class="oi oi-trash" aria-hidden="true"></span>
                 </button>
             </td>
@@ -69,5 +74,12 @@
     void editarRegistro(int id)
     {
         NavigationManager.NavigateTo("/");
+    }
+
+    async void eliminarRegistro(int id)
+    {
+       await ProductoService.deleteIdproducto(id);
+        NavigationManager.NavigateTo("/");
+
     }
 }

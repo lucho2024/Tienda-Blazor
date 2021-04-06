@@ -112,7 +112,7 @@ using OnlineBlazorApp.Data.Service;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 36 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Categorias.razor"
+#line 39 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Categorias.razor"
        
 
     IEnumerable<Categoria> categorias;
@@ -121,6 +121,10 @@ using OnlineBlazorApp.Data.Service;
     {
         categorias = await CategoriaService.GetAllCategorias();
 
+    }
+    void IdCategoria(int categoria)
+    {
+        NavigationManager.NavigateTo("/categoria/"+categoria, forceLoad: true);
     }
 
 

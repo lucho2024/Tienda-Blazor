@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace OnlineBlazorApp.Pages
+namespace OnlineBlazorApp.Pages.Shared
 {
     #line hidden
     using System;
@@ -90,21 +90,28 @@ using System.IO;
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\ProductoAdd.razor"
+#line 3 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Shared\Categoria.razor"
 using OnlineBlazorApp.Data.Model;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\ProductoAdd.razor"
+#line 4 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Shared\Categoria.razor"
 using OnlineBlazorApp.Data.Service;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/producto-add")]
-    public partial class ProductoAdd : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 5 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Shared\Categoria.razor"
+using Microsoft.AspNetCore.Http;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/categoria/{categoria}")]
+    public partial class Categoria : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -112,60 +119,27 @@ using OnlineBlazorApp.Data.Service;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 56 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\ProductoAdd.razor"
+#line 50 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Shared\Categoria.razor"
        
 
-    Producto producto = new Producto();
-    IFileListEntry file;
-    IEnumerable<Categoria> categorias;
+    [Parameter]
+    public string categoria { get; set; }
+
+    IEnumerable<Producto> productosc;
 
     protected override async Task OnInitializedAsync()
     {
-        categorias = await CategoriaService.GetAllCategorias();
+        productosc = await ProductoService.GetProductoByCategory(categoria);
 
     }
 
-    protected async Task ProductoInsert()
-    {
-        await ProductoService.ProductoInsert(producto);
-        NavigationManager.NavigateTo("/productos-list");
-    }
 
-    public bool verificarTipoImagen(String extension)
-    {
-        string[] typeImage = { ".png", ".jpg", ".jpeg", ".gif" };
-        return typeImage.Contains(extension);
-    }
-
-    async Task SeleccionarArchivo(IFileListEntry[] files)
-    {
-        file = files.FirstOrDefault();
-        if (file != null && verificarTipoImagen(Path.GetExtension(file.Name)))
-        {
-            producto.imagen = "/UploadImage/" + file.Name;
-            await fileUpload.UploadAsync(file);
-        }
-    }
-    async Task HandleFileSelected(IFileListEntry[] files)
-    {
-        file = files.FirstOrDefault();
-        if (file != null)
-        {
-            await fileUpload.UploadAsync(file);
-        }
-    }
-
-    void Cancel()
-    {
-        NavigationManager.NavigateTo("/");
-    }
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IFileUpload fileUpload { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IHttpContextAccessor httpContextAccessor { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ICategoriaService CategoriaService { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IProductoService ProductoService { get; set; }
     }
 }

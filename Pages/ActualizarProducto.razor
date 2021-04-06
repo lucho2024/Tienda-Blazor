@@ -1,4 +1,4 @@
-﻿@page "/producto-add"
+﻿@page "/actulizar-producto/{id}"
 @using OnlineBlazorApp.Data.Model
 @using OnlineBlazorApp.Data.Service
 
@@ -59,8 +59,11 @@
     IFileListEntry file;
     IEnumerable<Categoria> categorias;
 
+
     protected override async Task OnInitializedAsync()
     {
+       // [Parameter]
+        string id;
         categorias = await CategoriaService.GetAllCategorias();
 
     }
@@ -93,10 +96,5 @@
         {
             await fileUpload.UploadAsync(file);
         }
-    }
-
-    void Cancel()
-    {
-        NavigationManager.NavigateTo("/");
     }
 }

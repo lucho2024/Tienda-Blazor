@@ -89,6 +89,13 @@ using System.IO;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 1 "C:\Users\luish\source\repos\OnlineBlazorApp\Shared\NavMenu.razor"
+using Microsoft.AspNetCore.Http;
+
+#line default
+#line hidden
+#nullable disable
     public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -96,6 +103,7 @@ using System.IO;
         {
         }
         #pragma warning restore 1998
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IHttpContextAccessor httpContextAccessor { get; set; }
     }
 }
 #pragma warning restore 1591

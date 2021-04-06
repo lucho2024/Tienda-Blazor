@@ -90,21 +90,21 @@ using System.IO;
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\ProductoAdd.razor"
+#line 2 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\ActualizarProducto.razor"
 using OnlineBlazorApp.Data.Model;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\ProductoAdd.razor"
+#line 3 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\ActualizarProducto.razor"
 using OnlineBlazorApp.Data.Service;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/producto-add")]
-    public partial class ProductoAdd : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/actulizar-producto/{id}")]
+    public partial class ActualizarProducto : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -112,15 +112,18 @@ using OnlineBlazorApp.Data.Service;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 56 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\ProductoAdd.razor"
+#line 56 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\ActualizarProducto.razor"
        
 
     Producto producto = new Producto();
     IFileListEntry file;
     IEnumerable<Categoria> categorias;
 
+
     protected override async Task OnInitializedAsync()
     {
+       // [Parameter]
+        string id;
         categorias = await CategoriaService.GetAllCategorias();
 
     }
@@ -153,11 +156,6 @@ using OnlineBlazorApp.Data.Service;
         {
             await fileUpload.UploadAsync(file);
         }
-    }
-
-    void Cancel()
-    {
-        NavigationManager.NavigateTo("/");
     }
 
 #line default

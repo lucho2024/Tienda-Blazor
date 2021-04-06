@@ -1,4 +1,6 @@
-﻿<div class="header">
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor httpContextAccessor
+<div class="header">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -9,41 +11,49 @@
                     <div class="menu">
                         <NavLink class="toggleMenu" href="#"><img src="/Estilo/images/nav.png" alt="" /></NavLink>
                         <ul class="nav" id="nav">
-                            <li>
-                                <NavLink activeClassName="active"
-                                         className="nav-item link-light"
-                                         href="identity/account/login">
-                                    Login
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink activeClassName="active"
-                                         className="nav-item link-light"
-                                         href="identity/account/register">
-                                    Sing up
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink activeClassName="active"
-                                         className="nav-item link-light"
-                                         href="lista">
-                                    Lista usuarios
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink activeClassName="active"
-                                         className="nav-item link-light"
-                                         href="producto-add">
-                                    Añadir producto
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink activeClassName="active"
-                                         className="nav-item link-light"
-                                         href="productos-list">
-                                    Lista productos
-                                </NavLink>
-                            </li>
+                            @if (@httpContextAccessor.HttpContext.User.Identity.Name == null)
+                            {
+                                <li>
+                                    <NavLink activeClassName="active"
+                                             className="nav-item link-light"
+                                             href="identity/account/login">
+                                        Login
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink activeClassName="active"
+                                             className="nav-item link-light"
+                                             href="identity/account/register">
+                                        Sing up
+                                    </NavLink>
+                                </li>
+                            }
+
+                            <!--       <li>
+         <NavLink activeClassName="active"
+              className="nav-item link-light"
+         href="lista">
+            Lista usuarios
+    </NavLink>
+    </li>-->
+                            @if (@httpContextAccessor.HttpContext.User.Identity.Name != null)
+                            {
+                                <li>
+                                    <NavLink activeClassName="active"
+                                             className="nav-item link-light"
+                                             href="producto-add">
+                                        Añadir producto
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink activeClassName="active"
+                                             className="nav-item link-light"
+                                             href="productos-list">
+                                        Lista productos
+                                    </NavLink>
+                                </li>
+                            }
+
                             <li>
                                 <NavLink activeClassName="active"
                                          className="nav-item link-light"
@@ -51,7 +61,7 @@
                                     Categorias
                                 </NavLink>
                             </li>
-                      
+
                             <li>
                                 <NavLink activeClassName="active"
                                          className="nav-item link-light"

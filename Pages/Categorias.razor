@@ -3,6 +3,8 @@
 @using OnlineBlazorApp.Data.Service
 @inject ICategoriaService CategoriaService
 @inject NavigationManager NavigationManager
+
+
 <div class="main">
     <div class="shop_top">
         <div class="container">
@@ -15,14 +17,15 @@
                     {
                         <div class="col-md-4">
                             <div class="img_section magnifier2">
-                                <NavLink activeClassName="active"
+                                <button 
+                                         @onclick="() => IdCategoria(categoria.pk_cod_categoria)"
                                          class="fancybox"
-                                         href=@categoria.imagen data-fancybox-group="gallery" title="NIKE RUNNING">
+                                         data-fancybox-group="gallery" >
                                     <img src=@categoria.imagen class="img-responsive" alt=""><span> </span>
                                     <div class="img_section_txt">
                                         @categoria.nombre
                                     </div>
-                                </NavLink>
+                                </button>
                             </div>
                         </div>
                       
@@ -41,6 +44,10 @@
     {
         categorias = await CategoriaService.GetAllCategorias();
 
+    }
+    void IdCategoria(int categoria)
+    {
+        NavigationManager.NavigateTo("/categoria/"+categoria, forceLoad: true);
     }
 
 
