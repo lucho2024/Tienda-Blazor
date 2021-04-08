@@ -10,5 +10,6 @@ namespace OnlineBlazorApp.Data.Service
         Task<IEnumerable<Producto>> GetAllProductos();
         Task<IEnumerable<Producto>> GetProductoByCategory(string pk_categoria);
         Task<bool> ProductoInsert(Producto producto);
+        Task<bool> ProductoUpdate(Producto producto, int id);
     }
 }

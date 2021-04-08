@@ -1,4 +1,4 @@
-﻿@page "/actulizar-producto/{id}"
+﻿@page "/actualizar-producto/{id}"
 @using OnlineBlazorApp.Data.Model
 @using OnlineBlazorApp.Data.Service
 
@@ -7,7 +7,7 @@
 @inject NavigationManager NavigationManager
 @inject IFileUpload fileUpload
 
-<EditForm Model="@producto" OnValidSubmit="@ProductoInsert">
+<EditForm Model="@producto" OnValidSubmit="@ProductoUpdate">
     <div class="form-group">
         <label for="name" class="form-label">Nombre : </label>
         <input type="text" class="form-control" id="name" @bind="producto.nombre" />
@@ -49,30 +49,39 @@
         </InputFile>
     </div>
     <div class="mb-2">
-        <input type="submit" value="Registrar producto" class="btn btn-warning btn-block" />
+        <input type="submit" value="Actualizar producto" class="btn btn-warning btn-block" />
     </div>
 </EditForm>
 
 @code {
+
+
+
+    [Parameter] public string id { get; set; }
 
     Producto producto = new Producto();
     IFileListEntry file;
     IEnumerable<Categoria> categorias;
 
 
+
+
     protected override async Task OnInitializedAsync()
     {
-       // [Parameter]
-        string id;
+
         categorias = await CategoriaService.GetAllCategorias();
-
     }
 
-    protected async Task ProductoInsert()
+    protected async Task ProductoUpdate()
     {
-        await ProductoService.ProductoInsert(producto);
-        NavigationManager.NavigateTo("/productos-list");
+
+        int id2 = Int32.Parse(id);
+
+        await ProductoService.ProductoUpdate(producto, id2);
+        NavigationManager.NavigateTo("/productos-list", forceLoad: true);
+
     }
+
 
     public bool verificarTipoImagen(String extension)
     {

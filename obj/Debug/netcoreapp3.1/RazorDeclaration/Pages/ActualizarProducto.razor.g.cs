@@ -103,7 +103,7 @@ using OnlineBlazorApp.Data.Service;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/actulizar-producto/{id}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/actualizar-producto/{id}")]
     public partial class ActualizarProducto : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -115,24 +115,35 @@ using OnlineBlazorApp.Data.Service;
 #line 56 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\ActualizarProducto.razor"
        
 
+
+
+    [Parameter] public string id { get; set; }
+
+
+    protected async Task ProductoUpdate()
+    {
+
+        int id2 = Int32.Parse(id);
+
+        await ProductoService.ProductoUpdate(producto, id2);
+        NavigationManager.NavigateTo("/productos-list", forceLoad: true);
+
+    }
+
     Producto producto = new Producto();
     IFileListEntry file;
     IEnumerable<Categoria> categorias;
 
 
+
+
     protected override async Task OnInitializedAsync()
     {
-       // [Parameter]
-        string id;
+
         categorias = await CategoriaService.GetAllCategorias();
-
     }
 
-    protected async Task ProductoInsert()
-    {
-        await ProductoService.ProductoInsert(producto);
-        NavigationManager.NavigateTo("/productos-list");
-    }
+
 
     public bool verificarTipoImagen(String extension)
     {

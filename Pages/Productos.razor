@@ -42,7 +42,10 @@
                 
                     </td>
             <td>
-                <button type="button" class="btn btn-default" aria-label="Left Align" title="editar">
+                <button type="button"
+                        @onclick="() => editarRegistro(producto.pk_cod_producto)"
+                        class="btn btn-default" aria-label="Left Align"
+                        title="editar">
                     <span class="oi oi-pencil" aria-hidden="true"></span>
                 </button>
             </td>
@@ -73,12 +76,13 @@
 
     void editarRegistro(int id)
     {
-        NavigationManager.NavigateTo("/");
+        
+        NavigationManager.NavigateTo("/actualizar-producto/"+id, forceLoad: true);
     }
 
     async void eliminarRegistro(int id)
     {
-       await ProductoService.deleteIdproducto(id);
+        await ProductoService.deleteIdproducto(id);
         NavigationManager.NavigateTo("/");
 
     }
