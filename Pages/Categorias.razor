@@ -7,20 +7,20 @@
 
 <div class="main">
     <div class="shop_top">
+        <h3 class="m_2">Categorias</h3>
+        <br />
         <div class="container">
             <div class="row ex_box">
-                <h3 class="m_2">Categorias</h3>
-                <br />
+
                 @if (categorias != null)
-                {               
+                {
                     @foreach (var categoria in categorias)
                     {
-                        <div class="col-md-4">
+                        <div class="col-md-2">
                             <div class="img_section magnifier2">
-                                <button 
-                                         @onclick="() => IdCategoria(categoria.pk_cod_categoria)"
-                                         class="fancybox"
-                                         data-fancybox-group="gallery" >
+                                <button @onclick="() => IdCategoria(categoria.pk_cod_categoria)"
+                                        class="fancybox"
+                                        data-fancybox-group="gallery">
                                     <img src=@categoria.imagen class="img-responsive" alt=""><span> </span>
                                     <div class="img_section_txt">
                                         @categoria.nombre
@@ -28,7 +28,7 @@
                                 </button>
                             </div>
                         </div>
-                      
+
                     }
                 }
             </div>
