@@ -125,14 +125,14 @@ using OnlineBlazorApp.Data.Service;
 
     void editarRegistro(int id)
     {
-        
-        NavigationManager.NavigateTo("/actualizar-producto/"+id, forceLoad: true);
+
+        NavigationManager.NavigateTo("/ActualizarP/" + id);
     }
 
     async void eliminarRegistro(int id)
     {
         await ProductoService.deleteIdproducto(id);
-        NavigationManager.NavigateTo("/");
+        NavigationManager.NavigateTo("/productos-list");
 
     }
 

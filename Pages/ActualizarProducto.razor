@@ -1,4 +1,4 @@
-﻿@page "/actualizar-producto/{id}"
+﻿@page "/ActualizarP/{pid:int}"
 @using OnlineBlazorApp.Data.Model
 @using OnlineBlazorApp.Data.Service
 
@@ -19,6 +19,7 @@
     <div class="form-group">
         <label for="categoria" class="form-label">Categoria : </label>
         <select name="categoria" id="categoria" @bind="producto.fk_cod_categoria">
+            <option  disabled></option>
             @if (categorias != null)
             {
                 @foreach (var categoria in categorias)
@@ -49,39 +50,38 @@
         </InputFile>
     </div>
     <div class="mb-2">
-        <input type="submit" value="Actualizar producto" class="btn btn-warning btn-block" />
+        <input type="submit" value="Actualizar" class="btn btn-warning btn-block" />
     </div>
 </EditForm>
 
 @code {
 
-
-
-    [Parameter] public string id { get; set; }
-
     Producto producto = new Producto();
     IFileListEntry file;
     IEnumerable<Categoria> categorias;
-
-
-
+    [Parameter]
+    public int pid { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-
         categorias = await CategoriaService.GetAllCategorias();
+
+        if (pid > 0)
+        {
+            string Id = pid + "";
+            producto = await ProductoService.GetProductoById(Id);
+        }
+
     }
 
     protected async Task ProductoUpdate()
     {
 
-        int id2 = Int32.Parse(id);
-
-        await ProductoService.ProductoUpdate(producto, id2);
-        NavigationManager.NavigateTo("/productos-list", forceLoad: true);
+        Console.WriteLine("obej"+producto);
+        await ProductoService.ProductoUpdate(producto);
+        NavigationManager.NavigateTo("/productos-list");
 
     }
-
 
     public bool verificarTipoImagen(String extension)
     {
@@ -105,5 +105,10 @@
         {
             await fileUpload.UploadAsync(file);
         }
+    }
+
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("/");
     }
 }

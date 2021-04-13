@@ -49,12 +49,12 @@ namespace OnlineBlazorApp.Data.Service
             }
             return true;
         }
-        public async Task<bool> ProductoUpdate(Producto producto, int id)
+        public async Task<bool> ProductoUpdate(Producto producto)
         {
             using (var conn = new SqlConnection(_configuration.Value))
             {
                 var parameters = new DynamicParameters();
-
+                parameters.Add("pk_cod_producto", producto.pk_cod_producto, DbType.Int32);
                 parameters.Add("nombre", producto.nombre, DbType.String);
                 parameters.Add("cantidad", producto.cantidad, DbType.Int32);
                 parameters.Add("fk_cod_categoria", producto.cantidad, DbType.Int32);
@@ -62,14 +62,17 @@ namespace OnlineBlazorApp.Data.Service
                 parameters.Add("precio", producto.precio, DbType.Double);
                 parameters.Add("imagen", producto.imagen, DbType.String);
 
-                string query = @"update producto set fk_cod_categoria=@fk_cod_categoria,
-                                                            nombre=@nombre,cantidad=@cantidad,
-                                                            descripcion=@descripcion,precio=@precio,
+                const string query = @"update producto set fk_cod_categoria=@fk_cod_categoria,
+                                                            nombre=@nombre,
+                                                            cantidad=@cantidad,
+                                                            descripcion=@descripcion,
+                                                            precio=@precio,
                                                             imagen=@imagen
-                                                            where pk_cod_producto = " + id;
+                                                            where pk_cod_producto = @pk_cod_producto";
+                Console.WriteLine("query" + query);
                 await conn.ExecuteAsync(query, new
                 {
-
+                    producto.pk_cod_producto,
                     producto.nombre,
                     producto.cantidad,
                     producto.fk_cod_categoria,
@@ -102,6 +105,18 @@ namespace OnlineBlazorApp.Data.Service
             }
 
             return true;
+        }
+        public async Task<Producto> GetProductoById(string idproducto)
+        {
+           
+            using (var conn = new SqlConnection(_configuration.Value))
+            {
+                string query = "select * from producto " +
+                    " where pk_cod_producto = " + idproducto;
+                return await conn.QueryFirstOrDefaultAsync<Producto>(query.ToString(), new { pk_cod_producto = idproducto }, commandType: CommandType.Text);
+            }
+
+
         }
 
         public async Task<IEnumerable<Producto>> GetProductoByCategory(string pk_categoria)

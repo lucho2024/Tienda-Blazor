@@ -168,11 +168,12 @@
     {
     @if (httpContextAccessor.HttpContext.User.Identity.Name != null)
     {
-        usuario = await AspNetUsersService.GetUsuario("obama12@gmail.com");
-         id= usuario.First().Id;
-        
-    }
+        usuario = await AspNetUsersService.GetUsuario(httpContextAccessor.HttpContext.User.Identity.Name);
+        id= usuario.First().Id;
         sessionIDU.SetItemAsync("idu", id);
+
+    }
+        
     }
 
 }

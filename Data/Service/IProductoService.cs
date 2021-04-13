@@ -9,7 +9,8 @@ namespace OnlineBlazorApp.Data.Service
         Task<bool> deleteIdproducto(int id);
         Task<IEnumerable<Producto>> GetAllProductos();
         Task<IEnumerable<Producto>> GetProductoByCategory(string pk_categoria);
+        Task<Producto> GetProductoById(string idproducto);
         Task<bool> ProductoInsert(Producto producto);
-        Task<bool> ProductoUpdate(Producto producto, int id);
+        Task<bool> ProductoUpdate(Producto producto);
     }
 }

@@ -19,6 +19,7 @@
     <div class="form-group">
         <label for="categoria" class="form-label">Categoria : </label>
         <select name="categoria" id="categoria" @bind="producto.fk_cod_categoria">
+            <option  disabled></option>
             @if (categorias != null)
             {
                 @foreach (var categoria in categorias)

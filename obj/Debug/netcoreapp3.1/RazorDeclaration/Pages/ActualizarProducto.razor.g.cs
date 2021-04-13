@@ -103,7 +103,7 @@ using OnlineBlazorApp.Data.Service;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/actualizar-producto/{id}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/ActualizarP/{pid:int}")]
     public partial class ActualizarProducto : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -112,38 +112,35 @@ using OnlineBlazorApp.Data.Service;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 56 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\ActualizarProducto.razor"
+#line 57 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\ActualizarProducto.razor"
        
-
-
-
-    [Parameter] public string id { get; set; }
-
-
-    protected async Task ProductoUpdate()
-    {
-
-        int id2 = Int32.Parse(id);
-
-        await ProductoService.ProductoUpdate(producto, id2);
-        NavigationManager.NavigateTo("/productos-list", forceLoad: true);
-
-    }
 
     Producto producto = new Producto();
     IFileListEntry file;
     IEnumerable<Categoria> categorias;
-
-
-
+    [Parameter]
+    public int pid { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-
         categorias = await CategoriaService.GetAllCategorias();
+
+        if (pid > 0)
+        {
+            string Id = pid + "";
+            producto = await ProductoService.GetProductoById(Id);
+        }
+
     }
 
+    protected async Task ProductoUpdate()
+    {
 
+        Console.WriteLine("obej"+producto);
+        await ProductoService.ProductoUpdate(producto);
+        NavigationManager.NavigateTo("/productos-list");
+
+    }
 
     public bool verificarTipoImagen(String extension)
     {
@@ -167,6 +164,11 @@ using OnlineBlazorApp.Data.Service;
         {
             await fileUpload.UploadAsync(file);
         }
+    }
+
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("/");
     }
 
 #line default

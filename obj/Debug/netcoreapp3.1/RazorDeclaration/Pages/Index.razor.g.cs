@@ -135,18 +135,19 @@ using OnlineBlazorApp.Data.Service;
 #line 169 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Index.razor"
      if (httpContextAccessor.HttpContext.User.Identity.Name != null)
     {
-        usuario = await AspNetUsersService.GetUsuario("obama12@gmail.com");
-         id= usuario.First().Id;
-        
+        usuario = await AspNetUsersService.GetUsuario(httpContextAccessor.HttpContext.User.Identity.Name);
+        id= usuario.First().Id;
+        sessionIDU.SetItemAsync("idu", id);
+
     }
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 174 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Index.razor"
+#line 175 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Index.razor"
      
-        sessionIDU.SetItemAsync("idu", id);
+        
     }
 
 

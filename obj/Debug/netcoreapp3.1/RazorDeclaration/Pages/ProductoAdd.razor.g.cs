@@ -112,7 +112,7 @@ using OnlineBlazorApp.Data.Service;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 56 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\ProductoAdd.razor"
+#line 57 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\ProductoAdd.razor"
        
 
     Producto producto = new Producto();
