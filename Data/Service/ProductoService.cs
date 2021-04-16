@@ -108,7 +108,7 @@ namespace OnlineBlazorApp.Data.Service
         }
         public async Task<Producto> GetProductoById(string idproducto)
         {
-           
+
             using (var conn = new SqlConnection(_configuration.Value))
             {
                 string query = "select * from producto " +
@@ -119,14 +119,31 @@ namespace OnlineBlazorApp.Data.Service
 
         }
 
-        public async Task<IEnumerable<Producto>> GetProductoByCategory(string pk_categoria)
+        public async Task<IEnumerable<Producto>> GetProductoByCategory(string pk_categoria, int npagina)
         {
+
+            int nregistros = 3;
+            int paginares = npagina - 1;
+            int multipr = paginares * nregistros;
+            int multinpr = npagina * nregistros;
+
+
             IEnumerable<Producto> productos;
             using (var conn = new SqlConnection(_configuration.Value))
             {
-                string query = "select p.nombre,p.descripcion,p.precio,p.imagen from producto as p join categoria" +
-                    " on p.fk_cod_categoria=categoria.pk_cod_categoria" +
-                    " where categoria.pk_cod_categoria = " + pk_categoria;
+                /* string query = "select p.nombre,p.descripcion,p.precio,p.imagen from producto as p join categoria" +
+                     " on p.fk_cod_categoria=categoria.pk_cod_categoria" +
+                     " where categoria.pk_cod_categoria = " + pk_categoria;*/
+                /*   string query = "with productos_aux as(" +
+                                "select *, ROW_NUMBER() over(order by pk_cod_producto asc) as fila from producto with(nolock)" +
+                                "where fk_cod_categoria = " + pk_categoria + ")" +
+                                "select * from productos_aux" +
+                                "where fila > (" + (npagina - 1) + ") *" + @nregistros + " and fila <= " + (@npagina * @nregistros) +")";*/
+                string query = "with productos_aux as (" +
+                                "select *, ROW_NUMBER() over(order by pk_cod_producto asc) as fila from producto with(nolock)" +
+                                "where fk_cod_categoria = " + pk_categoria + ")" +
+                                "select * from productos_aux where fila > "+multipr+" and fila <= "+multinpr+"";
+                               
                 productos = await conn.QueryAsync<Producto>(query, commandType: CommandType.Text);
             }
 

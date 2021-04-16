@@ -16,6 +16,8 @@ namespace OnlineBlazorApp.Data.Model
         public float precio { get; set; }
         public float precioDescuento { get; set; }
         public string imagen { get; set; }
+        public int fila { get; set; }
+
 
     }
 }

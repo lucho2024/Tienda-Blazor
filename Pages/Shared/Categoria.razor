@@ -1,4 +1,4 @@
-﻿@page "/categoria/{categoria}"
+﻿@page "/categoria/{categoria}/{page}"
 
 @using OnlineBlazorApp.Data.Model
 @using OnlineBlazorApp.Data.Service
@@ -11,6 +11,14 @@
 <div class="main">
     <div class="shop_top">
         <div class="container">
+            <div class="pagination">
+
+                <button @onclick="() => ChangePage(1)">    <a>1</a> </button>
+                <button @onclick="() => ChangePage(2)">    <a>2</a> </button>
+                <button @onclick="() => ChangePage(3)">     <a>3</a> </button>
+               
+               
+            </div>
             <div class="row shop_box-top">
 
                 @if (productosc != null)
@@ -51,13 +59,22 @@
 
     [Parameter]
     public string categoria { get; set; }
+    [Parameter]
+    public string page { get; set; }
 
     IEnumerable<Producto> productosc;
 
     protected override async Task OnInitializedAsync()
     {
-        productosc = await ProductoService.GetProductoByCategory(categoria);
+        int pagina = Int32.Parse(page);
+        productosc = await ProductoService.GetProductoByCategory(categoria,pagina);
 
+    }
+
+    void ChangePage(int pagina)
+    {
+        NavigationManager.NavigateTo("/categoria/"+categoria+"/"+pagina);
+        //productosc = await ProductoService.GetProductoByCategory(categoria, pagina);
     }
 
 

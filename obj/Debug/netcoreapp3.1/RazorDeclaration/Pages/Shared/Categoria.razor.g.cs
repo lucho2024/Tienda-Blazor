@@ -110,7 +110,7 @@ using Microsoft.AspNetCore.Http;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/categoria/{categoria}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/categoria/{categoria}/{page}")]
     public partial class Categoria : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -119,18 +119,27 @@ using Microsoft.AspNetCore.Http;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 50 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Shared\Categoria.razor"
+#line 64 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Shared\Categoria.razor"
        
 
     [Parameter]
     public string categoria { get; set; }
+    [Parameter]
+    public string page { get; set; }
 
     IEnumerable<Producto> productosc;
 
     protected override async Task OnInitializedAsync()
     {
-        productosc = await ProductoService.GetProductoByCategory(categoria);
+        int pagina = Int32.Parse(page);
+        productosc = await ProductoService.GetProductoByCategory(categoria,pagina);
 
+    }
+
+    void ChangePage(int pagina)
+    {
+        NavigationManager.NavigateTo("/categoria/"+categoria+"/"+pagina);
+        //productosc = await ProductoService.GetProductoByCategory(categoria, pagina);
     }
 
 

@@ -124,7 +124,7 @@ using OnlineBlazorApp.Data.Service;
     }
     void IdCategoria(int categoria)
     {
-        NavigationManager.NavigateTo("/categoria/"+categoria, forceLoad: true);
+        NavigationManager.NavigateTo("/categoria/"+categoria+"/1", forceLoad: true);
     }
 
 
