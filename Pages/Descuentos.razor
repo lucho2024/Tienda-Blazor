@@ -1,0 +1,59 @@
+﻿@page "/descuentos-list"
+
+@using OnlineBlazorApp.Data.Model
+@using OnlineBlazorApp.Data.Service
+@inject IDescuentoCategoriaService DescuentoCategoriaService
+@inject NavigationManager NavigationManager
+
+
+<h3>Lista de Productos</h3>
+<table class="table">
+    <thead>
+        <tr>
+           
+            <th>categoria </th>
+            <th>Porcentaje</th>
+            <th colspan="2">Accion</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (descuentos != null)
+        {
+            @foreach (var descuento in descuentos)
+            {
+                <tr>
+                    <td>@descuento.fk_cod_categoria</td>
+                    <td>@descuento.porcentaje</td>
+                    <td>
+                        <button type="button"
+                                @onclick="() => eliminarRegistro(descuento.fk_cod_categoria)"
+                                class="btn btn-default" aria-label="Left Align"
+                                title="eliminar">
+                            <span class="oi oi-trash" aria-hidden="true"></span>
+                        </button>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+
+</table>
+
+@code {
+
+    IEnumerable<DescuentoCategoria> descuentos;
+
+    protected override async Task OnInitializedAsync()
+    {
+        descuentos = await DescuentoCategoriaService.GetAlldescuentos();
+
+    }
+
+
+    async void eliminarRegistro(int id)
+    {
+        await DescuentoCategoriaService.EliminarDescuento(id);
+        NavigationManager.NavigateTo("/productos-list");
+
+    }
+}

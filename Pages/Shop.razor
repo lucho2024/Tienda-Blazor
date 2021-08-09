@@ -16,7 +16,7 @@
             <div class="row shop_box-top">
                 @if (@httpContextAccessor.HttpContext.User.Identity.Name != null)
                 {    
-                <h1>@httpContextAccessor.HttpContext.User.Identity.Name</h1>
+              
                 }
                 @if (productos != null)
                 {
@@ -33,7 +33,11 @@
                                         <span class="reducedfrom">@producto.precio</span>
                                         <span class="actual">@producto.precioDescuento</span><br>
                                     }
-                                    <span class="actual">@producto.precio</span><br>
+                                    else
+                                    {
+                                        <span class="actual">@producto.precio</span><br>
+                                    }
+
                                     <ul class="buttons">
                                         @if (httpContextAccessor.HttpContext.User.Identity.Name != null)
                                         {

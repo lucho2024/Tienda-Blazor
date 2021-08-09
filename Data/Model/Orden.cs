@@ -11,5 +11,7 @@ namespace OnlineBlazorApp.Data.Model
         public int fk_cod_carro { get; set; }
         public float total_pagar { get; set; }
         public string direccion_envio { get; set; }
+
+        public string pagado { get; set; }
     }
 }

@@ -14,7 +14,8 @@
             <th>Nombre</th>
             <th>Cantidad</th>
             <th>Descripcion</th>
-            <th>precio</th>
+            <th>precio</th
+            <th>precio con descuento</th>
             <th>Imagen</th>
             <th colspan="2">Accion</th>
         </tr>
@@ -30,17 +31,18 @@
             <td>@producto.cantidad</td>
             <td>@producto.descripcion</td>
             <td>@producto.precio</td>
+            <td>@producto.precioDescuento</td>
             <td>
                 @if (@producto.imagen != null)
                 {
-            <img src="@producto.imagen" asp-append-version="true" style="width:100px;height:100px;" />
-            }
+                    <img src="@producto.imagen" asp-append-version="true" style="width:100px;height:100px;" />
+                }
                 else
                 {
-            <img src="" alt="" class="img-thumbnail">
+                    <img src="" alt="" class="img-thumbnail">
                 }
-                
-                    </td>
+
+            </td>
             <td>
                 <button type="button"
                         @onclick="() => editarRegistro(producto.pk_cod_producto)"
@@ -50,9 +52,9 @@
                 </button>
             </td>
             <td>
-                <button type="button" 
-                        @onclick="() => eliminarRegistro(producto.pk_cod_producto)" 
-                        class="btn btn-default" aria-label="Left Align" 
+                <button type="button"
+                        @onclick="() => eliminarRegistro(producto.pk_cod_producto)"
+                        class="btn btn-default" aria-label="Left Align"
                         title="eliminar">
                     <span class="oi oi-trash" aria-hidden="true"></span>
                 </button>

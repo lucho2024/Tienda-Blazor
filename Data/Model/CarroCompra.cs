@@ -8,6 +8,6 @@ namespace OnlineBlazorApp.Data.Model
     public class CarroCompra
     {
         public int pk_cod_carro { get; set; }
-        public int fk_cod_usu { get; set; }
+        public int fk_usuario { get; set; }
     }
 }

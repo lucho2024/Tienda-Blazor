@@ -122,7 +122,7 @@ namespace OnlineBlazorApp.Data.Service
         public async Task<IEnumerable<Producto>> GetProductoByCategory(string pk_categoria, int npagina)
         {
 
-            int nregistros = 3;
+            int nregistros = 4;
             int paginares = npagina - 1;
             int multipr = paginares * nregistros;
             int multinpr = npagina * nregistros;
@@ -142,8 +142,8 @@ namespace OnlineBlazorApp.Data.Service
                 string query = "with productos_aux as (" +
                                 "select *, ROW_NUMBER() over(order by pk_cod_producto asc) as fila from producto with(nolock)" +
                                 "where fk_cod_categoria = " + pk_categoria + ")" +
-                                "select * from productos_aux where fila > "+multipr+" and fila <= "+multinpr+"";
-                               
+                                "select * from productos_aux where fila > " + multipr + " and fila <= " + multinpr + " and cantidad > 0";
+
                 productos = await conn.QueryAsync<Producto>(query, commandType: CommandType.Text);
             }
 

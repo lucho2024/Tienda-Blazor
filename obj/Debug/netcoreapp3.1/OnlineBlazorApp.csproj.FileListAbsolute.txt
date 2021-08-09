@@ -69,11 +69,7 @@ C:\Users\luish\source\repos\OnlineBlazorApp\bin\Debug\netcoreapp3.1\runtimes\win
 C:\Users\luish\source\repos\OnlineBlazorApp\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Register.razor.g.cs
 C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\Razor\Pages\Register.razor.g.cs
-C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Login.razor.g.cs
-C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\Razor\Pages\Login.razor.g.cs
 C:\Users\luish\source\repos\OnlineBlazorApp\bin\Debug\netcoreapp3.1\OnlineBlazorApp.StaticWebAssets.xml
-C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\scopedcss\projectbundle\OnlineBlazorApp.bundle.scp.css
-C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\scopedcss\Pages\Login.razor.rz.scp.css
 C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\UsuariosList.razor.g.cs
 C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\Razor\Pages\UsuariosList.razor.g.cs
 C:\Users\luish\source\repos\OnlineBlazorApp\bin\Debug\netcoreapp3.1\BlazorInputFile.dll
@@ -737,3 +733,9 @@ C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\RazorDeclara
 C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\Razor\Pages\ActualizarProducto.razor.g.cs
 C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Shared\Categoria.razor.g.cs
 C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\Categoria.razor.g.cs
+C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Catego.razor.g.cs
+C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\Razor\Pages\Catego.razor.g.cs
+C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\AgregarDescuento.razor.g.cs
+C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\Razor\Pages\AgregarDescuento.razor.g.cs
+C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Descuentos.razor.g.cs
+C:\Users\luish\source\repos\OnlineBlazorApp\obj\Debug\netcoreapp3.1\Razor\Pages\Descuentos.razor.g.cs

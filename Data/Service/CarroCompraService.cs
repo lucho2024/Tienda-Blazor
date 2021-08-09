@@ -23,16 +23,14 @@ namespace OnlineBlazorApp.Data.Service
             {
                 var parameters = new DynamicParameters();
                 parameters.Add("pk_cod_carro", carrocompra.pk_cod_carro, DbType.Int32);
-                parameters.Add("fk_cod_usu", carrocompra.fk_cod_usu, DbType.Int32);
+                parameters.Add("fk_usuario", carrocompra.fk_usuario, DbType.Int32);
 
-
-
-                const string query = @"INSERT INTO carroCompra (pk_cod_carro,fk_cod_usu)
-                                     VALUES (@pk_cod_carro,@fk_cod_usu)";
+                const string query = @"INSERT INTO carroCompra (pk_cod_carro,fk_usuario)
+                                     VALUES (@pk_cod_carro,@fk_usuario)";
                 await conn.ExecuteAsync(query, new
                 {
                     carrocompra.pk_cod_carro,
-                    carrocompra.fk_cod_usu
+                    carrocompra.fk_usuario
                 },
                     commandType: CommandType.Text);
             }

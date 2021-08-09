@@ -36,6 +36,7 @@ namespace OnlineBlazorApp
             services.AddScoped<IFileUpload, FileUpload>(); 
             services.AddScoped<ICategoriaService, CategoriaService>();
             services.AddScoped<IAspNetUsersService, AspNetUsersService>();
+            services.AddScoped<IDescuentoCategoriaService, DescuentoCategoriaService>();
             services.AddBlazoredSessionStorage();
 
 

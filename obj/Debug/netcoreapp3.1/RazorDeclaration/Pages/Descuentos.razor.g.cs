@@ -90,21 +90,21 @@ using System.IO;
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Categorias.razor"
+#line 3 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Descuentos.razor"
 using OnlineBlazorApp.Data.Model;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Categorias.razor"
+#line 4 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Descuentos.razor"
 using OnlineBlazorApp.Data.Service;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/categorias")]
-    public partial class Categorias : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/descuentos-list")]
+    public partial class Descuentos : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -112,28 +112,30 @@ using OnlineBlazorApp.Data.Service;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 39 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Categorias.razor"
+#line 42 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Descuentos.razor"
        
 
-    IEnumerable<Categoria> categorias;
+    IEnumerable<DescuentoCategoria> descuentos;
 
     protected override async Task OnInitializedAsync()
     {
-        categorias = await CategoriaService.GetAllCategorias();
+        descuentos = await DescuentoCategoriaService.GetAlldescuentos();
 
     }
-    void IdCategoria(int categoria)
+
+
+    async void eliminarRegistro(int id)
     {
-        NavigationManager.NavigateTo("/categoria?categoria="+categoria, forceLoad: true);
+        await DescuentoCategoriaService.EliminarDescuento(id);
+        NavigationManager.NavigateTo("/productos-list");
+
     }
-
-
 
 #line default
 #line hidden
 #nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ICategoriaService CategoriaService { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IDescuentoCategoriaService DescuentoCategoriaService { get; set; }
     }
 }
 #pragma warning restore 1591

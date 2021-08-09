@@ -90,21 +90,28 @@ using System.IO;
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Login.razor"
+#line 3 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Catego.razor"
 using OnlineBlazorApp.Data.Model;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Login.razor"
+#line 4 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Catego.razor"
 using OnlineBlazorApp.Data.Service;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/login")]
-    public partial class Login : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 5 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Catego.razor"
+using Microsoft.AspNetCore.Http;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/catego/{categoria}")]
+    public partial class Catego : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -112,37 +119,39 @@ using OnlineBlazorApp.Data.Service;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 36 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Login.razor"
+#line 57 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Catego.razor"
        
-    Usuario usuario = new Usuario();
-    protected async Task UsuarioInsert()
+
+    [Parameter]
+    public string categoria { get; set; }
+
+
+    IEnumerable<Producto> productosc;
+
+    protected override async Task OnInitializedAsync()
     {
-        await UsuarioService.UsuarioInsert(usuario);
-        NavigationManager.NavigateTo("/login");
+
+        productosc = await ProductoService.GetProductoByCategory(categoria, 1);
+
+    }
+    protected async Task ChangeP()
+    {
+
+    }
+    protected async Task ChangePage(int pagina)
+    {
+        //NavigationManager.NavigateTo("/categoria/" + categoria + "/" + pagina);
+        productosc = await ProductoService.GetProductoByCategory(categoria, pagina);
     }
 
-    void Cancel()
-    {
-        NavigationManager.NavigateTo("/");
-    }
+
 
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 50 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Login.razor"
-        IEnumerable<Usuario> usuarios;
-
-            protected override async Task OnInitializedAsync()
-            {
-                usuarios = await UsuarioService.GetAllClientes();
-            }
-
-#line default
-#line hidden
-#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IHttpContextAccessor httpContextAccessor { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IUsuarioService UsuarioService { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IProductoService ProductoService { get; set; }
     }
 }
 #pragma warning restore 1591

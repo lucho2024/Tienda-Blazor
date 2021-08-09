@@ -90,21 +90,21 @@ using System.IO;
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Categorias.razor"
+#line 2 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\AgregarDescuento.razor"
 using OnlineBlazorApp.Data.Model;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Categorias.razor"
+#line 3 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\AgregarDescuento.razor"
 using OnlineBlazorApp.Data.Service;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/categorias")]
-    public partial class Categorias : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/descuento")]
+    public partial class AgregarDescuento : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -112,9 +112,11 @@ using OnlineBlazorApp.Data.Service;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 39 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Categorias.razor"
+#line 36 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\AgregarDescuento.razor"
        
 
+    DescuentoCategoria descuento = new DescuentoCategoria();
+    IFileListEntry file;
     IEnumerable<Categoria> categorias;
 
     protected override async Task OnInitializedAsync()
@@ -122,9 +124,14 @@ using OnlineBlazorApp.Data.Service;
         categorias = await CategoriaService.GetAllCategorias();
 
     }
-    void IdCategoria(int categoria)
+
+    protected async Task DescuentoCategoriaServiceInsert()
     {
-        NavigationManager.NavigateTo("/categoria?categoria="+categoria, forceLoad: true);
+
+        await DescuentoCategoriaService.InsertarDescuento(descuento);
+    
+        NavigationManager.NavigateTo("/productos-list");
+
     }
 
 
@@ -133,7 +140,9 @@ using OnlineBlazorApp.Data.Service;
 #line hidden
 #nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IDescuentoCategoriaService DescuentoCategoriaService { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private ICategoriaService CategoriaService { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IProductoService ProductoService { get; set; }
     }
 }
 #pragma warning restore 1591

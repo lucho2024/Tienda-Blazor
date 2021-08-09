@@ -119,7 +119,7 @@ using Microsoft.AspNetCore.Http;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 56 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Shop.razor"
+#line 60 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Shop.razor"
        
 
     IEnumerable<Producto> productos;

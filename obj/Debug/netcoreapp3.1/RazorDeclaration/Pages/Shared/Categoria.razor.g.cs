@@ -90,27 +90,41 @@ using System.IO;
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Shared\Categoria.razor"
+#line 4 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Shared\Categoria.razor"
 using OnlineBlazorApp.Data.Model;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Shared\Categoria.razor"
+#line 5 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Shared\Categoria.razor"
 using OnlineBlazorApp.Data.Service;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Shared\Categoria.razor"
+#line 6 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Shared\Categoria.razor"
 using Microsoft.AspNetCore.Http;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/categoria/{categoria}/{page}")]
+#nullable restore
+#line 7 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Shared\Categoria.razor"
+using Microsoft.AspNetCore.WebUtilities;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 8 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Shared\Categoria.razor"
+using Microsoft.Extensions.Primitives;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/categoria")]
     public partial class Categoria : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -119,35 +133,36 @@ using Microsoft.AspNetCore.Http;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 64 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Shared\Categoria.razor"
+#line 66 "C:\Users\luish\source\repos\OnlineBlazorApp\Pages\Shared\Categoria.razor"
        
 
-    [Parameter]
-    public string categoria { get; set; }
-    [Parameter]
-    public string page { get; set; }
-
+    public string cate;
     IEnumerable<Producto> productosc;
 
     protected override async Task OnInitializedAsync()
     {
-        int pagina = Int32.Parse(page);
-        productosc = await ProductoService.GetProductoByCategory(categoria,pagina);
+
+        StringValues categoria;
+        var uri = NavigationManager.ToAbsoluteUri(NavigationManager.Uri);
+        if (QueryHelpers.ParseQuery(uri.Query).TryGetValue("categoria", out categoria))
+        {
+            cate = categoria;
+        }
+
+        productosc = await ProductoService.GetProductoByCategory(cate, 1);
 
     }
-
-    void ChangePage(int pagina)
+    protected async Task ChangeP(int pagina)
     {
-        NavigationManager.NavigateTo("/categoria/"+categoria+"/"+pagina);
-        //productosc = await ProductoService.GetProductoByCategory(categoria, pagina);
-    }
-
+        productosc = await ProductoService.GetProductoByCategory(cate, pagina);
+    }   
 
 
 #line default
 #line hidden
 #nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IHttpContextAccessor httpContextAccessor { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private Blazored.SessionStorage.ISessionStorageService sessionCarrito { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IProductoService ProductoService { get; set; }
     }

@@ -1,16 +1,11 @@
-﻿@page "/categoria"
-
+﻿@page "/catego/{categoria}"
 
 @using OnlineBlazorApp.Data.Model
 @using OnlineBlazorApp.Data.Service
 @using Microsoft.AspNetCore.Http
-@using Microsoft.AspNetCore.WebUtilities;
-@using Microsoft.Extensions.Primitives;
 
 @inject IProductoService ProductoService
 @inject NavigationManager NavigationManager
-@inject Blazored.SessionStorage.ISessionStorageService sessionCarrito
-
 @inject IHttpContextAccessor httpContextAccessor
 
 
@@ -19,8 +14,8 @@
         <div class="container">
             <div class="pagination">
 
-                <button @onclick="() => ChangeP(1)">    <a>1</a> </button>
-                <button @onclick="() => ChangeP(2)">    <a>2</a> </button>
+                <button @onclick="() => ChangePage(1)">    <a>1</a> </button>
+                <button @onclick="() => ChangePage(2)">    <a>2</a> </button>
 
             </div>
             <div class="row shop_box-top">
@@ -40,11 +35,7 @@
                                         <span class="reducedfrom">@producto.precio</span>
                                         <span class="actual">@producto.precioDescuento</span><br>
                                     }
-                                    else
-                                    {
-                                        <span class="actual">@producto.precio</span><br>
-                                    }
-
+                                    <span class="actual">@producto.precio</span><br>
                                     <ul class="buttons">
                                         @if (httpContextAccessor.HttpContext.User.Identity.Name != null)
                                         {
@@ -65,25 +56,27 @@
 </div>
 @code {
 
-    public string cate;
+    [Parameter]
+    public string categoria { get; set; }
+
+
     IEnumerable<Producto> productosc;
 
     protected override async Task OnInitializedAsync()
     {
 
-        StringValues categoria;
-        var uri = NavigationManager.ToAbsoluteUri(NavigationManager.Uri);
-        if (QueryHelpers.ParseQuery(uri.Query).TryGetValue("categoria", out categoria))
-        {
-            cate = categoria;
-        }
-
-        productosc = await ProductoService.GetProductoByCategory(cate, 1);
+        productosc = await ProductoService.GetProductoByCategory(categoria, 1);
 
     }
-    protected async Task ChangeP(int pagina)
+    protected async Task ChangeP()
     {
-        productosc = await ProductoService.GetProductoByCategory(cate, pagina);
-    }   
+
+    }
+    protected async Task ChangePage(int pagina)
+    {
+        //NavigationManager.NavigateTo("/categoria/" + categoria + "/" + pagina);
+        productosc = await ProductoService.GetProductoByCategory(categoria, pagina);
+    }
+
 
 }
